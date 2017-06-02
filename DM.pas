@@ -48,6 +48,7 @@ procedure TDMl.DataSourceGuestViewDataChange(Sender: TObject;
 begin
   GuestForm.LoadImage;
   GuestForm.LabelLoadText;
+  GuestForm.StatusBarUpdate;
 end;
 
 procedure TDMl.DoConDB;

@@ -14,7 +14,8 @@ uses
   ClPr in 'ClPr.pas' {ClPrForm},
   SkinTypeTest in 'SkinTypeTest.pas' {FormSkinType},
   RecCir in 'RecCir.pas' {FormRecCir},
-  SubMain in 'SubMain.pas' {SubMainForm};
+  SubMain in 'SubMain.pas' {SubMainForm},
+  ShowModalImage in 'ShowModalImage.pas' {FormShowModalImage};
 
 {ClientProgramsForm}
 
@@ -28,6 +29,7 @@ begin
   Application.CreateForm(TGuestForm, GuestForm);
   Application.CreateForm(TDMl, DMl);
   Application.CreateForm(TLoginForm, LoginForm);
+  Application.CreateForm(TFormShowModalImage, FormShowModalImage);
   LoginForm.Visible := True;
   Application.CreateForm(TAboutForm, AboutForm);
   Application.CreateForm(TClientProgramsForm, ClientProgramsForm);

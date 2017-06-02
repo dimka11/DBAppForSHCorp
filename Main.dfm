@@ -281,7 +281,7 @@ object MainForm: TMainForm
     object ToolButton3: TToolButton
       Left = 109
       Top = 0
-      Caption = #1056#1072#1089#1087#1080#1089#1072#1085#1080#1103
+      Caption = '0'
       ImageIndex = 1
     end
     object ToolButton4: TToolButton
@@ -295,7 +295,7 @@ object MainForm: TMainForm
     object ToolButton5: TToolButton
       Left = 218
       Top = 0
-      Caption = #1057#1086#1073#1099#1090#1080#1103
+      Caption = '0'
       ImageIndex = 2
     end
     object ToolButton6: TToolButton
@@ -312,19 +312,19 @@ object MainForm: TMainForm
       Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
       ImageIndex = 3
     end
-    object ToolButton8: TToolButton
+    object ToolButton9: TToolButton
       Left = 428
+      Top = 0
+      Caption = '0'
+      ImageIndex = 4
+    end
+    object ToolButton8: TToolButton
+      Left = 529
       Top = 0
       Width = 8
       Caption = 'ToolButton8'
       ImageIndex = 4
       Style = tbsSeparator
-    end
-    object ToolButton9: TToolButton
-      Left = 436
-      Top = 0
-      Caption = #1047#1072#1084#1077#1090#1082#1080
-      ImageIndex = 4
     end
     object ToolButton11: TToolButton
       Left = 537
@@ -341,16 +341,8 @@ object MainForm: TMainForm
       ImageIndex = 5
       Style = tbsSeparator
     end
-    object ToolButton12: TToolButton
-      Left = 646
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton12'
-      ImageIndex = 6
-      Style = tbsSeparator
-    end
     object ToolButton13: TToolButton
-      Left = 654
+      Left = 646
       Top = 0
       Caption = #1057#1093#1077#1084#1072' '#1087#1088#1080#1077#1084#1072' '#1041#1040#1044
       ImageIndex = 6

@@ -59,7 +59,6 @@ type
     ToolButton9: TToolButton;
     ToolButton10: TToolButton;
     ToolButton11: TToolButton;
-    ToolButton12: TToolButton;
     ToolButton13: TToolButton;
     procedure ToolButton13Click(Sender: TObject);
     procedure ToolButton11Click(Sender: TObject);
@@ -92,5 +91,6 @@ end;
 procedure TMainForm.ToolButton1Click(Sender: TObject);
 begin
   ClientProgramsForm.ShowModal;
+end;
 
 end.

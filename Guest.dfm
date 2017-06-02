@@ -2,7 +2,7 @@ object GuestForm: TGuestForm
   Left = 244
   Top = 165
   Caption = #1055#1088#1086#1076#1091#1082#1094#1080#1103' '#1082#1086#1084#1087#1072#1085#1080#1080#1080
-  ClientHeight = 419
+  ClientHeight = 379
   ClientWidth = 964
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,9 +24,10 @@ object GuestForm: TGuestForm
     Left = 0
     Top = 225
     Width = 964
-    Height = 175
+    Height = 135
     Align = alClient
     DataSource = DMl.DataSourceGuestView
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -35,18 +36,20 @@ object GuestForm: TGuestForm
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnCellClick = DBGrid1CellClick
+    OnDrawColumnCell = DBGrid1DrawColumnCell
+    OnTitleClick = DBGrid1TitleClick
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 400
+    Top = 360
     Width = 964
     Height = 19
     Panels = <
       item
-        Width = 50
+        Width = 220
       end
       item
-        Width = 50
+        Width = 200
       end>
   end
   object Panel1: TPanel
@@ -146,27 +149,27 @@ object GuestForm: TGuestForm
         OnClick = LabelURLClick
       end
       object EditFilter: TEdit
+        Left = 6
+        Top = 189
+        Width = 121
+        Height = 21
+        Hint = #1055#1086#1080#1089#1082' '#1087#1086' '#1085#1072#1079#1074#1072#1085#1080#1102
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        TextHint = #1053#1072#1079#1074#1072#1085#1080#1077
+        OnChange = EditFilterChange
+      end
+      object EditFilterCat: TEdit
         Left = 144
-        Top = 181
+        Top = 189
         Width = 121
         Height = 21
         Hint = #1055#1086#1080#1089#1082' '#1087#1086' '#1082#1072#1090#1077#1075#1086#1088#1080#1080
         ParentShowHint = False
         ShowHint = True
-        TabOrder = 0
-        TextHint = #1050#1072#1090#1077#1075#1086#1088#1080#1103
-        OnChange = EditFilterChange
-      end
-      object EditFilterCat: TEdit
-        Left = 6
-        Top = 181
-        Width = 115
-        Height = 21
-        Hint = #1055#1086#1080#1089#1082' '#1087#1086' '#1085#1072#1079#1074#1072#1085#1080#1102
-        ParentShowHint = False
-        ShowHint = True
         TabOrder = 1
-        TextHint = #1053#1072#1079#1074#1072#1085#1080#1077
+        TextHint = #1050#1072#1090#1077#1075#1086#1088#1080#1103
         OnChange = EditFilterCatChange
       end
     end
@@ -185,6 +188,7 @@ object GuestForm: TGuestForm
         Height = 221
         Align = alClient
         Stretch = True
+        OnClick = Image1Click
         ExplicitLeft = 40
         ExplicitWidth = 260
         ExplicitHeight = 197
@@ -203,7 +207,7 @@ object GuestForm: TGuestForm
         Top = 1
         Width = 382
         Height = 221
-        ActivePage = TabSheet1
+        ActivePage = TabSheet3
         Align = alClient
         TabOrder = 0
         object TabSheet1: TTabSheet
@@ -224,6 +228,18 @@ object GuestForm: TGuestForm
             ReadOnly = True
             TabOrder = 0
             Zoom = 100
+            ExplicitLeft = -1
+          end
+          object Memo1: TMemo
+            Left = 256
+            Top = 118
+            Width = 41
+            Height = 37
+            Lines.Strings = (
+              'Memo'
+              '1')
+            TabOrder = 1
+            Visible = False
           end
         end
         object TabSheet2: TTabSheet
@@ -311,6 +327,21 @@ object GuestForm: TGuestForm
         ShortCut = 16460
         OnClick = MenuItemClick
       end
+      object N1: TMenuItem
+        Tag = 11
+        Caption = #1055#1086' '#1082#1072#1090#1077#1075#1086#1088#1080#1080'('#1087#1086' '#1091#1073#1099#1074#1072#1085#1080#1102')'
+        OnClick = MenuItemClick
+      end
+      object N2: TMenuItem
+        Tag = 12
+        Caption = #1055#1086' '#1085#1072#1079#1074#1072#1085#1080#1102'('#1087#1086' '#1091#1073#1099#1074#1072#1085#1080#1102')'
+        OnClick = MenuItemClick
+      end
+      object N3: TMenuItem
+        Tag = 13
+        Caption = #1055#1086' '#1089#1090#1086#1080#1084#1086#1089#1090#1080'('#1087#1086' '#1091#1073#1099#1074#1072#1085#1080#1102')'
+        OnClick = MenuItemClick
+      end
     end
     object ExportMenuItem: TMenuItem
       Caption = #1069#1082#1089#1087#1086#1088#1090
@@ -319,6 +350,21 @@ object GuestForm: TGuestForm
         Tag = 7
         Caption = #1055#1088#1072#1081#1089'-'#1083#1080#1089#1090' (Word)'
         ShortCut = 16453
+        OnClick = MenuItemClick
+      end
+      object Bookmark: TMenuItem
+        Tag = 8
+        Caption = #1047#1072#1082#1083#1072#1076#1082#1072
+        OnClick = MenuItemClick
+      end
+      object CopyToClipboard: TMenuItem
+        Tag = 9
+        Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1042#1089#1077' '#1074' '#1073#1091#1092#1077#1088' '#1086#1073#1084#1077#1085#1072
+        OnClick = MenuItemClick
+      end
+      object CopySelectedToClipBoard: TMenuItem
+        Tag = 10
+        Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1086#1077' '#1074' '#1073#1091#1092#1077#1088' '#1086#1073#1084#1077#1085#1072
         OnClick = MenuItemClick
       end
     end

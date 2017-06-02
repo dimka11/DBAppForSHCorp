@@ -129,6 +129,10 @@
         <DCCReference Include="SubMain.pas">
             <Form>SubMainForm</Form>
         </DCCReference>
+        <DCCReference Include="ShowModalImage.pas">
+            <Form>FormShowModalImage</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_DBApp\default.txaPackage"/>
         <None Include="Win32\Release\DB\Database.accdb"/>
         <BuildConfiguration Include="Release">

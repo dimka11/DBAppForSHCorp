@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Menus, Vcl.StdCtrls,
   Vcl.ComCtrls, Vcl.DBCtrls, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
-  Data.Win.ADODB, Vcl.Mask, ShellApi;
+  Data.Win.ADODB, Vcl.Mask, ShellApi, Vcl.Imaging.jpeg;
 
 type
   TGuestForm = class(TForm)
@@ -43,6 +43,13 @@ type
     Panel4: TPanel;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
+    Bookmark: TMenuItem;
+    CopyToClipboard: TMenuItem;
+    Memo1: TMemo;
+    CopySelectedToClipBoard: TMenuItem;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormShow(Sender: TObject);
     procedure SetGridView; // Настройка грида
@@ -57,6 +64,11 @@ type
     procedure FormResize(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure StatusBarUpdate;
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
     { Private declarations }
   public
@@ -66,11 +78,20 @@ type
   private
     procedure ExitFromApp; // Выход
     procedure UserChange;  // Смена пользователя
-    procedure SortByCat;  // Сортировки
-    procedure SortByName;
-    procedure SortByPrice;
+    /// <summary>
+    ///  Сортировка по категории
+    ///  </summary>
+    ///  <param name = "desc: Boolean">
+    ///  True - сортировка по возрастанию False - Сортировка по убыванию
+    ///  </param>
+    procedure SortByCat(desc : Boolean = True);// Сортировки
+    procedure SortByName(desc : Boolean = True);
+    procedure SortByPrice(desc : Boolean = True);
     procedure ExportPrice; // Экспорт прайс
     procedure ShowAbout;  // О программе
+    procedure AddBookmark; // Добавить закладку
+    procedure CopyToClipBoard; // Копирование выделенных записей в буфер обмена
+    procedure CopySelectedToClipBoard; // Копирование выделенных записей в буфер обмена
   end;
 
 var
@@ -82,7 +103,7 @@ implementation
 
 {$R *.dfm}
 
-uses Main, DM, About, Login;
+uses Main, DM, About, Login, ShowModalImage;
 
 
 procedure TGuestForm.CreateParams(var Params: TCreateParams);
@@ -96,15 +117,79 @@ begin
   LoadImage;
 end;
 
+procedure TGuestForm.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+  const
+    clPaleGreen = TColor($CCFFCC);
+    clPaleRed = TColor($CCCCFF);
+    // Выделение строки цветом
+begin
+  if Column.Field.Dataset.FieldByName('Базовая цена').AsString > Column.Field.Dataset.FieldByName('Текущая цена').AsString then
+     if (gdFocused in State) then //имеет ли ячейка фокус?
+       DBGrid1.Canvas.Brush.Color := clSkyBlue //имеет фокус
+     else
+       DBGrid1.Canvas.Brush.Color := clPaleGreen; //не имеет фокуса
+
+//Теперь давайте закрасим ячейку используя стандартный метод:
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State)
+end;
+
+procedure TGuestForm.DBGrid1TitleClick(Column: TColumn);
+{$J+}
+ const PreviousColumnIndex : integer = -1;
+{$J-}
+var
+  Index: ShortString;
+begin
+// СОРТИРОВКА ПО КЛИКУ НА ЗАГОЛОВОК
+
+
+  if DBGrid1.DataSource.DataSet is TCustomADODataSet then
+  with TCustomADODataSet(DBGrid1.DataSource.DataSet) do
+  begin
+    try
+      DBGrid1.Columns[PreviousColumnIndex].title.Font.Style :=
+      DBGrid1.Columns[PreviousColumnIndex].title.Font.Style - [fsBold];
+    except
+    end;
+    Column.title.Font.Style :=
+    Column.title.Font.Style + [fsBold];
+    PreviousColumnIndex := Column.Index;
+    if (ANSIPos('['+ Column.Field.FieldName + ']', Sort) = 1)
+    and (ANSIPos(' DESC', Sort)= 0) then
+      Sort := '['+ Column.Field.FieldName + ']' + ' DESC'
+    else
+      Sort := '[' + Column.Field.FieldName + ']' +' ASC';
+  end;
+end;
+
 procedure TGuestForm.EditFilterCatChange(Sender: TObject);
 begin
-  DMl.ADOStoredProcGuestView.Filter := '[Категория]>'''+EditFilterCat.Text+'''';
+  // Фильтр для категорий
+    if Length(EditFilterCat.Text) >0 then
+    begin
+      DMl.ADOStoredProcGuestView.Filter := '[Категория] LIKE  '''+'*'+ EditFilterCat.Text+'*' + '''';
+      DMl.ADOStoredProcGuestView.Filtered := True;
+    end
+     else
+     begin
+      DMl.ADOStoredProcGuestView.Filtered := False;
+     end;
 end;
 
 procedure TGuestForm.EditFilterChange(Sender: TObject);
 
 begin
-  DMl.ADOStoredProcGuestView.Filter := '[Продукт]>'''+EditFilter.Text+'''';
+  // Фильтр для названи  продуктов
+    if Length(EditFilter.Text) >0 then
+    begin
+      DMl.ADOStoredProcGuestView.Filter := '[Продукт] LIKE  '''+'*'+ EditFilter.Text+'*' + '''';
+      DMl.ADOStoredProcGuestView.Filtered := True;
+    end
+     else
+     begin
+      DMl.ADOStoredProcGuestView.Filtered := False;
+     end;
 end;
 
 procedure TGuestForm.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -146,14 +231,36 @@ end;
 procedure TGuestForm.FormShow(Sender: TObject);
 begin
   SetGridView;
+  StatusBarUpdate;
 end;
 
-procedure TGuestForm.LabelLoadText;
+procedure TGuestForm.Image1Click(Sender: TObject);
 begin
+  FormShowModalImage.ShowModal;
+end;
+
+procedure TGuestForm.LabelLoadText; // Загрузка заголовков
+begin
+try
   LabelURL.Caption := DMl.ADOStoredProcGuestView.FieldByName('URL').Value;
-  LabelSubHeadline.Caption := DMl.ADOStoredProcGuestView.FieldByName('подзаголовок').Value; ;
-  LabelSubHead.Caption := DMl.ADOStoredProcGuestView.FieldByName('категория').Value; ;
-  LabelSubCat.Caption := DMl.ADOStoredProcGuestView.FieldByName('подкатегория').Value; ;
+except
+  LabelURL.Caption := ' ';
+end;
+try
+  LabelSubHeadline.Caption := DMl.ADOStoredProcGuestView.FieldByName('подзаголовок').Value;
+except
+  LabelSubHeadline.Caption := ' ';
+end;
+try
+  LabelSubHead.Caption := DMl.ADOStoredProcGuestView.FieldByName('категория').Value;
+except
+  LabelSubHead.Caption := ' ';
+end;
+try
+  LabelSubCat.Caption := DMl.ADOStoredProcGuestView.FieldByName('подкатегория').Value;
+except
+  LabelSubCat.Caption := ' ';
+end;
 end;
 
 procedure TGuestForm.LabelURLClick(Sender: TObject); // Клик по ссылке
@@ -167,7 +274,7 @@ begin
    try
     image1.Picture.LoadFromFile(GetCurrentDir+'/Images/'+DMl.ADOStoredProcGuestView.FieldByName('Image').Text);
   except
-    image1.Picture.LoadFromFile(GetCurrentDir+'/Images/'+'no-image-large.jpg');
+    image1.Picture.LoadFromFile(GetCurrentDir+ '\Images\no-image-large.jpg');
   end;
 end;
 
@@ -177,11 +284,17 @@ begin
   case (Sender as TMenuItem).Tag of
   1: HandleMenuFunc.ExitFromApp; // Выход из программы
   2: HandleMenuFunc.UserChange ; // Смена пользователя
-  4: HandleMenuFunc.SortByCat ; // Сортировка по категории
-  5: HandleMenuFunc.SortByName ; // Сортировка по названию
-  6: HandleMenuFunc.SortByPrice ; // Сортировка по стоимости
+  4: HandleMenuFunc.SortByCat; // Сортировка по категории
+  5: HandleMenuFunc.SortByName; // Сортировка по названию
+  6: HandleMenuFunc.SortByPrice; // Сортировка по стоимости
   7: HandleMenuFunc.ExportPrice; // Экспорт прайс листа
   3: HandleMenuFunc.ShowAbout ; //   О программе
+  8: HandleMenuFunc.AddBookmark; // Добавить закладку
+  9: HandleMenuFunc.CopyToClipBoard; // Копирование в буфер обмена
+  10: HandleMenuFunc.CopySelectedToClipBoard; // копировать выделенное в буфер обмена
+  11: HandleMenuFunc.SortByCat(False); // Сортировка по категории
+  12: HandleMenuFunc.SortByName(False) ; // Сортировка по названию
+  13: HandleMenuFunc.SortByPrice(False) ; // Сортировка по стоимости
   end;
 end;
 
@@ -204,7 +317,111 @@ begin
   DBGrid1.Columns[14].Visible := False;
 end;
 
+procedure TGuestForm.StatusBarUpdate;  // Обновление статус бара
+begin
+  StatusBar1.Panels.Items[0].Text := 'Номер текущей записи: '+   IntToStr(DMl.ADOStoredProcGuestView.RecNo);
+  StatusBar1.Panels.Items[1].Text := 'Количество записей: '+   IntToStr(DMl.ADOStoredProcGuestView.RecordCount);
+
+end;
+
 { THandleMenuFunc }
+
+procedure THandleMenuFunc.AddBookmark;            // ЗАКЛАДКИ
+{ TODO : Найти код для копирования выделенных записей }
+var
+  Bookmark1: TBookmark;
+  z: Integer;
+  I:Integer;
+  Bookmarks: TBookmarkList;
+  BookString: string;
+begin
+(*
+    Bookmarks := GuestForm.DBGrid1.SelectedRows;
+    try
+      DMl.ADOStoredProcGuestView.First;
+       for I := 0 to GuestForm.DBGrid1.SelectedRows.Count-1 do
+         begin
+           Bookmark1:= GuestForm.DBGrid1.SelectedRows[i];
+           ShowMessage(DMl.ADOStoredProcGuestView.FieldByName('Продукт').AsVariant);
+         end;
+     finally
+      //-//-//-//-//-//-//-//-//
+     end;
+    BookString := Bookmarks[0][0].ToString;
+    ShowMessage(BookString);
+*)
+
+
+end;
+
+procedure THandleMenuFunc.CopySelectedToClipBoard;
+Const
+  //Tab character
+  Delim = CHR(9);
+var
+  i: Integer;
+  x: Integer;
+  S: String;
+  Y: String;
+begin
+  GuestForm.Memo1.Clear;
+  //Copy Fieldnames First
+  Y := '';
+  for x := 0 to GuestForm.DBGrid1.Columns.Count - 1 do
+  Y := Y + (format('%s',[GuestForm.DBGrid1.columns[x].title.caption]))+ Delim;
+  GuestForm.Memo1.Lines.Add(Y);
+
+  //Copy Field contents
+  if GuestForm.DBGrid1.SelectedRows.Count > 0 then
+  begin
+    with GuestForm.DBGrid1.DataSource.DataSet do
+    begin
+      for i := 0 to GuestForm.DBGrid1.SelectedRows.Count-1 do
+      begin
+          //Bookmark sets the position of the selection
+          S := '';
+          GotoBookmark(Tbookmark(GuestForm.DBGrid1.SelectedRows[i]));
+          for x := 0 to GuestForm.DBGrid1.Columns.Count - 1 do
+          Begin
+          S := S + (format('%s',[GuestForm.DbGrid1.columns[x].field.asString]))+ Delim;
+          end;
+          GuestForm.Memo1.Lines.Add(S);
+        end;
+      end;
+    end;
+  //Copy to a memo field, then to the clipboard
+  GuestForm.Memo1.SelectAll;
+  GuestForm.Memo1.CopyToClipboard;
+end;
+
+procedure THandleMenuFunc.CopyToClipBoard;
+const
+  //Tab character
+  Delim = CHR(9);
+  var
+  S: String;
+  I: Integer;
+  //Stream: TFileStream;
+begin
+// Копирование выделенных записей в буфер обмена
+  //Stream := TFileStream.Create('C:\temp\test.txt', fmCreate);
+
+  while not GuestForm.DBGrid1.DataSource.DataSet.EOF do
+  begin
+    S := '';
+
+    for I := 0 to GuestForm.DBGrid1.Columns.Count - 1 do
+    S := S + TColumn(GuestForm.DBGrid1.Columns[I]).Field.AsString + Delim;
+    //line end character
+    S := S + CHR(13);
+    //Stream.Write(PChar(S)^, Length(S));
+    GuestForm.Memo1.Lines.Add(S);
+    GuestForm.DBGrid1.DataSource.DataSet.Next();
+  end;
+  //Stream.Free();
+  GuestForm.Memo1.SelectAll;
+  GuestForm.Memo1.CopyToClipboard;
+end;
 
 procedure THandleMenuFunc.ExitFromApp; // Закрыть приложение
 begin
@@ -221,19 +438,28 @@ begin
   AboutForm.ShowModal;
 end;
 
-procedure THandleMenuFunc.SortByCat;
+procedure THandleMenuFunc.SortByCat(desc : Boolean = True);
 begin
-
+  if desc = True then
+    DMl.ADOStoredProcGuestView.Sort := 'Категория'
+  else
+    DMl.ADOStoredProcGuestView.Sort := 'Категория DESC';
 end;
 
-procedure THandleMenuFunc.SortByName;
+procedure THandleMenuFunc.SortByName(desc : Boolean = True);
 begin
-
+  if desc = True then
+    DMl.ADOStoredProcGuestView.Sort := 'Продукт'
+  else
+    DMl.ADOStoredProcGuestView.Sort := 'Продукт DESC';
 end;
 
-procedure THandleMenuFunc.SortByPrice;
-begin
-
+procedure THandleMenuFunc.SortByPrice(desc : Boolean = True);
+  begin
+  if desc = True then
+    DMl.ADOStoredProcGuestView.Sort := '['+'базовая цена'+']'
+  else
+    DMl.ADOStoredProcGuestView.Sort := '['+'базовая цена'+']'+ ' DESC';
 end;
 
 procedure THandleMenuFunc.UserChange; // Поках форм ылогина

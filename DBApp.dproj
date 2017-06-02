@@ -91,16 +91,15 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="Main.pas">
+            <Form>MainForm</Form>
+        </DCCReference>
         <DCCReference Include="Login.pas">
             <Form>LoginForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Guest.pas">
             <Form>GuestForm</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Main.pas">
-            <Form>MainForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="About.pas">
@@ -114,6 +113,21 @@
         </DCCReference>
         <DCCReference Include="ClientPrograms.pas">
             <Form>ClientProgramsForm</Form>
+        </DCCReference>
+        <DCCReference Include="ClientProg.pas">
+            <Form>FormClientProg</Form>
+        </DCCReference>
+        <DCCReference Include="ClPr.pas">
+            <Form>ClPrForm</Form>
+        </DCCReference>
+        <DCCReference Include="SkinTypeTest.pas">
+            <Form>FormSkinType</Form>
+        </DCCReference>
+        <DCCReference Include="RecCir.pas">
+            <Form>FormRecCir</Form>
+        </DCCReference>
+        <DCCReference Include="SubMain.pas">
+            <Form>SubMainForm</Form>
         </DCCReference>
         <None Include="ModelSupport_DBApp\default.txaPackage"/>
         <None Include="Win32\Release\DB\Database.accdb"/>
@@ -139,12 +153,6 @@
                 </Source>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\DBApp.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>DBApp.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="ModelSupport_DBApp\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
@@ -154,6 +162,12 @@
                 <DeployFile LocalName="Win32\Release\DB\Database.accdb" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win32\Debug\DBApp.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>DBApp.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

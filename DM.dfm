@@ -1,4 +1,4 @@
-object DataModule1: TDataModule1
+object DMl: TDMl
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 406
@@ -6,7 +6,7 @@ object DataModule1: TDataModule1
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
-      'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
+      'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=F:\U' +
       'sers\Dima\Downloads\'#1042#1050#1056'\App\Win32\Release\DB\Database.accdb;Mode' +
       '=Share Deny None;Persist Security Info=False;Jet OLEDB:System da' +
       'tabase="";Jet OLEDB:Registry Path="";Jet OLEDB:Database Password' +
@@ -30,7 +30,7 @@ object DataModule1: TDataModule1
     Filtered = True
     ProcedureName = 'ViewProductList'
     Parameters = <>
-    Left = 80
+    Left = 64
     Top = 128
   end
   object DataSourceGuestView: TDataSource

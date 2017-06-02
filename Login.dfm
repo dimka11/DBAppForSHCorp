@@ -1,9 +1,9 @@
-object Form1: TForm1
+object LoginForm: TLoginForm
   Left = 342
   Top = 329
   Caption = #1060#1086#1088#1084#1072' '#1074#1093#1086#1076#1072
   ClientHeight = 344
-  ClientWidth = 620
+  ClientWidth = 640
   Color = clBtnFace
   Constraints.MinHeight = 215
   Constraints.MinWidth = 636
@@ -14,6 +14,7 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
+  ShowHint = True
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
@@ -22,9 +23,9 @@ object Form1: TForm1
   object PageControl1: TPageControl
     Left = 0
     Top = 177
-    Width = 620
+    Width = 640
     Height = 167
-    ActivePage = TabSheet2
+    ActivePage = TabSheet4
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -32,7 +33,7 @@ object Form1: TForm1
       object RichEdit1: TRichEdit
         Left = 0
         Top = 0
-        Width = 612
+        Width = 632
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -52,7 +53,7 @@ object Form1: TForm1
       object RichEdit2: TRichEdit
         Left = 0
         Top = 0
-        Width = 612
+        Width = 632
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -69,14 +70,10 @@ object Form1: TForm1
     object TabSheet3: TTabSheet
       Caption = #1059#1089#1083#1086#1074#1080#1103' '#1087#1086#1082#1091#1087#1082#1080
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object RichEdit3: TRichEdit
         Left = 0
         Top = 0
-        Width = 612
+        Width = 632
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -93,14 +90,10 @@ object Form1: TForm1
     object TabSheet4: TTabSheet
       Caption = #1057#1090#1072#1085#1076#1072#1088#1090#1099' '#1089#1086#1090#1088#1091#1076#1085#1080#1095#1077#1089#1090#1074#1072
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object RichEdit4: TRichEdit
         Left = 0
         Top = 0
-        Width = 612
+        Width = 632
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -120,7 +113,7 @@ object Form1: TForm1
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 620
+    Width = 640
     Height = 177
     Align = alTop
     TabOrder = 1
@@ -843,6 +836,7 @@ object Form1: TForm1
       Top = 117
       Width = 64
       Height = 25
+      Hint = #1042#1099#1093#1086#1076' '#1080#1079' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1103
       Caption = #1042#1099#1093#1086#1076
       TabOrder = 1
       OnClick = Button2Click
@@ -852,15 +846,18 @@ object Form1: TForm1
       Top = 50
       Width = 145
       Height = 21
+      Hint = #1042#1099#1073#1077#1088#1080#1090#1077' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       TabOrder = 2
       Text = #1040#1076#1084#1080#1085#1080#1089#1090#1088#1072#1090#1086#1088
       TextHint = #1051#1086#1075#1080#1085
+      OnChange = ComboBox1Change
     end
     object Edit1: TEdit
       Left = 343
       Top = 90
       Width = 145
       Height = 21
+      Hint = #1042#1074#1077#1076#1080#1090#1077' '#1087#1072#1088#1086#1083#1100
       PasswordChar = '*'
       TabOrder = 3
       Text = 'qweqwe'
@@ -871,9 +868,21 @@ object Form1: TForm1
       Top = 146
       Width = 162
       Height = 25
+      Hint = #1054#1090#1086#1073#1088#1072#1079#1080#1090#1100' '#1089#1086#1075#1083#1072#1096#1077#1085#1080#1103
       Caption = #1057#1086#1075#1083#1072#1096#1077#1085#1080#1103
       TabOrder = 4
       OnClick = Button3Click
     end
+  end
+  object ADOQuery1: TADOQuery
+    Active = True
+    Connection = DMl.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Auth')
+    Left = 592
+    Top = 8
   end
 end

@@ -4,11 +4,11 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, dxGDIPlusClasses,
-  Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage;
 
 type
-  TForm4 = class(TForm)
+  TAboutForm = class(TForm)
     Label1: TLabel;
     Image1: TImage;
   private
@@ -18,7 +18,7 @@ type
   end;
 
 var
-  AboutForm: TForm4;
+  AboutForm: TAboutForm;
 
 implementation
 

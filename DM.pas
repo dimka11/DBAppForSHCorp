@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
 
 type
-  TDataModule1 = class(TDataModule)
+  TDMl = class(TDataModule)
     ADOConnection1: TADOConnection;
     ADOStoredProcGuestView: TADOStoredProc;
     DataSourceGuestView: TDataSource;
@@ -22,7 +22,7 @@ type
   end;
 
 var
-  DMl: TDataModule1;
+  DMl: TDMl;
 
 implementation
 
@@ -32,25 +32,25 @@ uses Guest;
 
 {$R *.dfm}
 
-procedure TDataModule1.ActivateData;
+procedure TDMl.ActivateData;
 begin
   ADOStoredProcLogin.Active := True;
   ADOStoredProcGuestView.Active := True;
 end;
 
-procedure TDataModule1.DataModuleCreate(Sender: TObject);
+procedure TDMl.DataModuleCreate(Sender: TObject);
 begin
   // Заглушка тута
 end;
 
-procedure TDataModule1.DataSourceGuestViewDataChange(Sender: TObject;
+procedure TDMl.DataSourceGuestViewDataChange(Sender: TObject;
   Field: TField);
 begin
   GuestForm.LoadImage;
   GuestForm.LabelLoadText;
 end;
 
-procedure TDataModule1.DoConDB;
+procedure TDMl.DoConDB;
 const
   ConnStr = 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=%s;Persist Security Info=True;Jet OLEDB:Database Password=';
 begin

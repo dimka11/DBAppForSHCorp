@@ -9,7 +9,7 @@ uses
   Data.Win.ADODB, Vcl.Mask, ShellApi;
 
 type
-  TForm2 = class(TForm)
+  TGuestForm = class(TForm)
     DBGrid1: TDBGrid;
     StatusBar1: TStatusBar;
     Image1: TImage;
@@ -43,6 +43,7 @@ type
     Panel4: TPanel;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
+    procedure CreateParams(var Params: TCreateParams); override;
     procedure FormShow(Sender: TObject);
     procedure SetGridView; // Настройка грида
     procedure LabelLoadText;   // Загрузка текста в лебелы
@@ -55,6 +56,7 @@ type
     procedure LabelURLClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,7 +74,7 @@ type
   end;
 
 var
-  GuestForm: TForm2;
+  GuestForm: TGuestForm;
   HandleMenuFunc: THandleMenuFunc;
 
 
@@ -83,29 +85,34 @@ implementation
 uses Main, DM, About, Login;
 
 
-
-procedure TForm2.DBGrid1CellClick(Column: TColumn);
+procedure TGuestForm.CreateParams(var Params: TCreateParams);
+begin
+  inherited CreateParams(Params);;
+  Params.ExStyle   := Params.ExStyle or WS_EX_APPWINDOW;
+  Params.WndParent := GetDesktopWindow;
+end;
+procedure TGuestForm.DBGrid1CellClick(Column: TColumn);
 begin
   LoadImage;
 end;
 
-procedure TForm2.EditFilterCatChange(Sender: TObject);
+procedure TGuestForm.EditFilterCatChange(Sender: TObject);
 begin
   DMl.ADOStoredProcGuestView.Filter := '[Категория]>'''+EditFilterCat.Text+'''';
 end;
 
-procedure TForm2.EditFilterChange(Sender: TObject);
+procedure TGuestForm.EditFilterChange(Sender: TObject);
 
 begin
   DMl.ADOStoredProcGuestView.Filter := '[Продукт]>'''+EditFilter.Text+'''';
 end;
 
-procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TGuestForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Application.Terminate;
 end;
 
-procedure TForm2.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TGuestForm.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
       CanClose := False;
      if Application.MessageBox('Закрыть?','Выход из программы', MB_YESNO+MB_ICONQUESTION) = IDYES then
@@ -115,7 +122,12 @@ begin
      end;
 end;
 
-procedure TForm2.FormResize(Sender: TObject); // Дейтсвия на раворот/ сворот форрмы
+procedure TGuestForm.FormCreate(Sender: TObject);
+begin
+  Application.Title:='АРМ Менеджера';
+end;
+
+procedure TGuestForm.FormResize(Sender: TObject); // Дейтсвия на раворот/ сворот форрмы
 begin
   if GuestForm.WindowState = wsMaximized  then
   begin
@@ -131,12 +143,12 @@ begin
   end;
 end;
 
-procedure TForm2.FormShow(Sender: TObject);
+procedure TGuestForm.FormShow(Sender: TObject);
 begin
   SetGridView;
 end;
 
-procedure TForm2.LabelLoadText;
+procedure TGuestForm.LabelLoadText;
 begin
   LabelURL.Caption := DMl.ADOStoredProcGuestView.FieldByName('URL').Value;
   LabelSubHeadline.Caption := DMl.ADOStoredProcGuestView.FieldByName('подзаголовок').Value; ;
@@ -144,22 +156,22 @@ begin
   LabelSubCat.Caption := DMl.ADOStoredProcGuestView.FieldByName('подкатегория').Value; ;
 end;
 
-procedure TForm2.LabelURLClick(Sender: TObject); // Клик по ссылке
+procedure TGuestForm.LabelURLClick(Sender: TObject); // Клик по ссылке
 begin
   ShellExecute(Application.Handle, PChar('open'), PChar(LabelURL.Caption),
    nil, nil, SW_SHOW);
 end;
 
-procedure TForm2.LoadImage;
+procedure TGuestForm.LoadImage;
 begin
    try
     image1.Picture.LoadFromFile(GetCurrentDir+'/Images/'+DMl.ADOStoredProcGuestView.FieldByName('Image').Text);
   except
-    image1.Picture:=nil;
+    image1.Picture.LoadFromFile(GetCurrentDir+'/Images/'+'no-image-large.jpg');
   end;
 end;
 
-procedure TForm2.MenuItemClick(Sender: TObject); // Клик по меню айтемсу
+procedure TGuestForm.MenuItemClick(Sender: TObject); // Клик по меню айтемсу
 begin
   //
   case (Sender as TMenuItem).Tag of
@@ -173,7 +185,7 @@ begin
   end;
 end;
 
-procedure TForm2.SetGridView;  // НАСТРОЙКА ЩИРИНЫ
+procedure TGuestForm.SetGridView;  // НАСТРОЙКА ЩИРИНЫ
 begin
   DBGrid1.Columns[0].Visible := False;
   DBGrid1.Columns[1].Width := 40;

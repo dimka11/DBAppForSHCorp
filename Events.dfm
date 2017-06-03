@@ -101,10 +101,11 @@ object FormEvents: TFormEvents
       669
       387)
     object Label1: TLabel
-      Left = 1
-      Top = 1
-      Width = 333
-      Height = 76
+      AlignWithMargins = True
+      Left = 11
+      Top = 4
+      Width = 320
+      Height = 70
       Margins.Left = 10
       Align = alClient
       Caption = 'ID'
@@ -114,14 +115,17 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 1
+      ExplicitTop = 1
       ExplicitWidth = 17
       ExplicitHeight = 19
     end
     object Label2: TLabel
-      Left = 1
-      Top = 77
-      Width = 333
-      Height = 76
+      AlignWithMargins = True
+      Left = 11
+      Top = 80
+      Width = 320
+      Height = 70
       Margins.Left = 10
       Align = alClient
       Caption = #1053#1072#1079#1074#1072#1085#1080#1077
@@ -131,14 +135,17 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 1
+      ExplicitTop = 77
       ExplicitWidth = 68
       ExplicitHeight = 19
     end
     object Label3: TLabel
-      Left = 1
-      Top = 153
-      Width = 333
-      Height = 77
+      AlignWithMargins = True
+      Left = 11
+      Top = 156
+      Width = 320
+      Height = 71
       Margins.Left = 10
       Align = alClient
       Caption = #1044#1072#1090#1072
@@ -148,14 +155,17 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 1
+      ExplicitTop = 153
       ExplicitWidth = 35
       ExplicitHeight = 19
     end
     object Label4: TLabel
-      Left = 1
-      Top = 230
-      Width = 333
-      Height = 77
+      AlignWithMargins = True
+      Left = 11
+      Top = 233
+      Width = 320
+      Height = 71
       Margins.Left = 10
       Align = alClient
       Caption = #1055#1088#1080#1086#1088#1080#1090#1077#1090
@@ -165,14 +175,17 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 1
+      ExplicitTop = 230
       ExplicitWidth = 80
       ExplicitHeight = 19
     end
     object Label5: TLabel
-      Left = 1
-      Top = 307
-      Width = 333
-      Height = 79
+      AlignWithMargins = True
+      Left = 11
+      Top = 310
+      Width = 320
+      Height = 73
       Margins.Left = 10
       Align = alClient
       Caption = #1054#1087#1080#1089#1072#1085#1080#1077
@@ -182,6 +195,8 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 1
+      ExplicitTop = 307
       ExplicitWidth = 71
       ExplicitHeight = 19
     end
@@ -252,6 +267,21 @@ object FormEvents: TFormEvents
     Height = 25
     DataSource = DMl.DataSourceEvents
     Align = alBottom
+    Hints.Strings = (
+      #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1087#1077#1088#1074#1086#1081' '#1079#1072#1087#1080#1089#1080
+      #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1087#1088#1077#1076#1099#1076#1091#1097#1077#1081' '#1079#1072#1087#1080#1089#1080
+      #1057#1083#1077#1076#1091#1102#1097#1072#1103' '#1079#1072#1087#1080#1089#1100
+      #1055#1086#1089#1083#1077#1076#1085#1103#1103' '#1079#1072#1087#1080#1089#1100
+      #1042#1089#1090#1072#1074#1080#1090#1100' '#1085#1086#1074#1091#1102' '#1079#1072#1087#1080#1089#1100
+      #1059#1076#1072#1083#1080#1090#1100' '#1079#1072#1087#1080#1089#1100
+      #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1079#1072#1087#1080#1089#1100
+      #1055#1086#1076#1090#1074#1077#1088#1076#1080#1090#1100' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1077
+      #1054#1090#1084#1077#1085#1080#1090#1100' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1077
+      #1054#1073#1085#1086#1074#1080#1090#1100' '#1076#1072#1085#1085#1099#1077
+      #1055#1086#1076#1090#1074#1077#1088#1076#1080#1090#1100' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1077
+      #1054#1090#1084#1077#1085#1080#1090#1100' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1077)
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 1
   end
 end

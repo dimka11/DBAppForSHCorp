@@ -25,7 +25,7 @@ object LoginForm: TLoginForm
     Top = 177
     Width = 640
     Height = 167
-    ActivePage = TabSheet4
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet

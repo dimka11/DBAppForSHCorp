@@ -73,9 +73,13 @@ begin
     if ADOQuery1.FieldByName('Type').AsInteger = 0 then
     begin
       MainForm.Show;
+      LoginForm.Visible := false;
     end
     else
+    begin
     GuestForm.Show;
+    LoginForm.Visible := false;
+    end;
   end
   else
   begin
@@ -86,7 +90,7 @@ begin
 
 
 
-  LoginForm.Visible := false;
+
   { TODO : СДЕЛАТЬ Проверку пароля из базы }
 
 

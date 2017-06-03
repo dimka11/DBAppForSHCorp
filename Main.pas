@@ -60,7 +60,7 @@ type
     ToolButton4: TToolButton;
     ToolButton12: TToolButton;
     DBGridProduct: TDBGrid;
-    DBGrid2: TDBGrid;
+    DBGridClient: TDBGrid;
     DBGrid3: TDBGrid;
     DBRichEdit1: TDBRichEdit;
     DBRichEdit2: TDBRichEdit;
@@ -87,6 +87,8 @@ type
     procedure Image1Click(Sender: TObject);
     procedure DBGridProductDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGridClientDrawDataCell(Sender: TObject; const Rect: TRect;
+      Field: TField; State: TGridDrawState);
   private
     { Private declarations }
   public
@@ -102,6 +104,28 @@ implementation
 
 uses RecCir, SkinTypeTest, ClientPrograms, Events, Schedule, SubMain, DM,
   ShowModalImage;
+
+
+
+procedure TMainForm.DBGridClientDrawDataCell(Sender: TObject; const Rect: TRect;
+  Field: TField; State: TGridDrawState);
+  var
+    Grid : TStringGrid;
+    Texto : String;
+    Rectangulo : TRect;
+begin
+  Rectangulo:=Rect;
+  Grid := TStringGrid(Sender);
+  if Field.IsBlob then begin
+    Grid.Canvas.FillRect(Rect);
+    Texto := Field.AsString;
+    DrawText( Grid.Canvas.Handle,
+                      PChar(Texto),
+                      StrLen(PChar(Texto)),
+                      Rectangulo,
+                      DT_WORDBREAK);
+    end;
+end;
 
 procedure TMainForm.DBGridProductDrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
@@ -225,6 +249,8 @@ begin
     DBGridProduct.Columns[13].Visible := False;
     DBGridProduct.Columns[14].Visible := False;
     end;
+    if PageControl1.ActivePageIndex = 1 then
+      DBGridClient.Columns[4].Width := 200;
 end;
 
 procedure TMainForm.StatusBarUpdate;

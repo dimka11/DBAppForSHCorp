@@ -48,13 +48,12 @@ object MainForm: TMainForm
         Top = 1
         Width = 800
         Height = 246
-        ActivePage = TabSheet1
+        ActivePage = TabSheet2
         Align = alClient
         TabOrder = 0
         OnChange = PageControl1Change
-        ExplicitLeft = -1
+        ExplicitLeft = 0
         ExplicitTop = 3
-        ExplicitHeight = 305
         object TabSheet1: TTabSheet
           Caption = #1055#1088#1086#1076#1091#1082#1094#1080#1103
           ExplicitHeight = 150
@@ -78,18 +77,20 @@ object MainForm: TMainForm
           Caption = #1050#1083#1080#1077#1085#1090#1099
           ImageIndex = 1
           ExplicitHeight = 150
-          object DBGrid2: TDBGrid
+          object DBGridClient: TDBGrid
             Left = 0
             Top = 0
             Width = 792
             Height = 218
             Align = alClient
+            DataSource = DMl.DataSourceGetClient
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
             TitleFont.Height = -11
             TitleFont.Name = 'Tahoma'
             TitleFont.Style = []
+            OnDrawDataCell = DBGridClientDrawDataCell
           end
         end
         object TabSheet3: TTabSheet

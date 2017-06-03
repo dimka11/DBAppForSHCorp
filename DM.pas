@@ -11,6 +11,8 @@ type
     ADOStoredProcGuestView: TADOStoredProc;
     DataSourceGuestView: TDataSource;
     ADOStoredProcLogin: TADOStoredProc;
+    ADOQueryEvents: TADOQuery;
+    DataSourceEvents: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
     procedure DoConDB;
     procedure ActivateData;
@@ -36,6 +38,7 @@ procedure TDMl.ActivateData;
 begin
   ADOStoredProcLogin.Active := True;
   ADOStoredProcGuestView.Active := True;
+  ADOQueryEvents.Active := True;
 end;
 
 procedure TDMl.DataModuleCreate(Sender: TObject);

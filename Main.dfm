@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   Caption = 'MainForm'
-  ClientHeight = 491
+  ClientHeight = 471
   ClientWidth = 968
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object MainForm: TMainForm
     Left = 0
     Top = 230
     Width = 968
-    Height = 242
+    Height = 222
     Align = alClient
     Caption = 'BotPanel'
     TabOrder = 0
@@ -26,14 +26,14 @@ object MainForm: TMainForm
       Left = 1
       Top = 1
       Width = 805
-      Height = 240
+      Height = 220
       Align = alClient
       Caption = 'Panel1'
       TabOrder = 0
       object Splitter1: TSplitter
         Left = 801
         Top = 1
-        Height = 238
+        Height = 218
         Align = alRight
         ExplicitLeft = 816
         ExplicitTop = 16
@@ -43,7 +43,7 @@ object MainForm: TMainForm
         Left = 1
         Top = 1
         Width = 800
-        Height = 238
+        Height = 218
         ActivePage = TabSheet1
         Align = alClient
         TabOrder = 0
@@ -76,7 +76,7 @@ object MainForm: TMainForm
       Left = 806
       Top = 1
       Width = 161
-      Height = 240
+      Height = 220
       Align = alRight
       Caption = 'Panel2'
       TabOrder = 1
@@ -118,7 +118,7 @@ object MainForm: TMainForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 472
+    Top = 452
     Width = 968
     Height = 19
     Panels = <
@@ -259,8 +259,6 @@ object MainForm: TMainForm
     Caption = 'ToolBar1'
     ShowCaptions = True
     TabOrder = 3
-    ExplicitLeft = 1
-    ExplicitTop = -4
     object ToolButton1: TToolButton
       Left = 0
       Top = 0
@@ -281,7 +279,7 @@ object MainForm: TMainForm
     object ToolButton3: TToolButton
       Left = 109
       Top = 0
-      Caption = '0'
+      Caption = #1056#1072#1089#1087#1080#1089#1072#1085#1080#1077
       ImageIndex = 1
     end
     object ToolButton4: TToolButton
@@ -295,8 +293,9 @@ object MainForm: TMainForm
     object ToolButton5: TToolButton
       Left = 218
       Top = 0
-      Caption = '0'
+      Caption = #1057#1086#1073#1099#1090#1080#1103
       ImageIndex = 2
+      OnClick = ToolButton5Click
     end
     object ToolButton6: TToolButton
       Left = 319
@@ -315,7 +314,7 @@ object MainForm: TMainForm
     object ToolButton9: TToolButton
       Left = 428
       Top = 0
-      Caption = '0'
+      Caption = #1056#1072#1073#1086#1090#1072
       ImageIndex = 4
     end
     object ToolButton8: TToolButton
@@ -333,20 +332,20 @@ object MainForm: TMainForm
       ImageIndex = 5
       OnClick = ToolButton11Click
     end
-    object ToolButton10: TToolButton
+    object ToolButton13: TToolButton
       Left = 638
+      Top = 0
+      Caption = #1057#1093#1077#1084#1072' '#1087#1088#1080#1077#1084#1072' '#1041#1040#1044
+      ImageIndex = 6
+      OnClick = ToolButton13Click
+    end
+    object ToolButton10: TToolButton
+      Left = 739
       Top = 0
       Width = 8
       Caption = 'ToolButton10'
       ImageIndex = 5
       Style = tbsSeparator
-    end
-    object ToolButton13: TToolButton
-      Left = 646
-      Top = 0
-      Caption = #1057#1093#1077#1084#1072' '#1087#1088#1080#1077#1084#1072' '#1041#1040#1044
-      ImageIndex = 6
-      OnClick = ToolButton13Click
     end
   end
   object MainMenu1: TMainMenu

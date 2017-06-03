@@ -383,7 +383,6 @@ object GuestForm: TGuestForm
     end
   end
   object ADOQueryExportWord: TADOQuery
-    Active = True
     Connection = DMl.ADOConnection1
     CursorType = ctStatic
     Parameters = <>

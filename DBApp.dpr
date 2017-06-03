@@ -15,7 +15,8 @@ uses
   SkinTypeTest in 'SkinTypeTest.pas' {FormSkinType},
   RecCir in 'RecCir.pas' {FormRecCir},
   SubMain in 'SubMain.pas' {SubMainForm},
-  ShowModalImage in 'ShowModalImage.pas' {FormShowModalImage};
+  ShowModalImage in 'ShowModalImage.pas' {FormShowModalImage},
+  Events in 'Events.pas' {FormEvents};
 
 {ClientProgramsForm}
 
@@ -30,10 +31,11 @@ begin
   Application.CreateForm(TDMl, DMl);
   Application.CreateForm(TLoginForm, LoginForm);
   Application.CreateForm(TFormShowModalImage, FormShowModalImage);
+  Application.CreateForm(TFormEvents, FormEvents);
   LoginForm.Visible := True;
   Application.CreateForm(TAboutForm, AboutForm);
   Application.CreateForm(TClientProgramsForm, ClientProgramsForm);
-  Application.CreateForm(TFormClientProg, FormClientProg); //FMX Form
+  //Application.CreateForm(TFormClientProg, FormClientProg); //FMX Form
   Application.CreateForm(TClPrForm, ClPrForm);
   Application.CreateForm(TFormSkinType, FormSkinType);
   Application.CreateForm(TFormRecCir, FormRecCir);

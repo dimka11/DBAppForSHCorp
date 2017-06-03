@@ -875,7 +875,6 @@ object LoginForm: TLoginForm
     end
   end
   object ADOQuery1: TADOQuery
-    Active = True
     Connection = DMl.ADOConnection1
     CursorType = ctStatic
     Parameters = <>

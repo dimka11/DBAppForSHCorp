@@ -24,7 +24,6 @@ object DMl: TDMl
     Top = 8
   end
   object ADOStoredProcGuestView: TADOStoredProc
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     Filtered = True
@@ -40,12 +39,26 @@ object DMl: TDMl
     Top = 176
   end
   object ADOStoredProcLogin: TADOStoredProc
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     ProcedureName = 'Login'
     Parameters = <>
     Left = 16
     Top = 56
+  end
+  object ADOQueryEvents: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM Event')
+    Left = 16
+    Top = 248
+  end
+  object DataSourceEvents: TDataSource
+    DataSet = ADOQueryEvents
+    Left = 72
+    Top = 248
   end
 end

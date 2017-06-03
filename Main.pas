@@ -63,6 +63,7 @@ type
     procedure ToolButton13Click(Sender: TObject);
     procedure ToolButton11Click(Sender: TObject);
     procedure ToolButton1Click(Sender: TObject);
+    procedure ToolButton5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,7 +77,7 @@ implementation
 
 {$R *.dfm}
 
-uses RecCir, SkinTypeTest, ClientPrograms;
+uses RecCir, SkinTypeTest, ClientPrograms, Events;
 
 procedure TMainForm.ToolButton11Click(Sender: TObject);
 begin
@@ -91,6 +92,11 @@ end;
 procedure TMainForm.ToolButton1Click(Sender: TObject);
 begin
   ClientProgramsForm.ShowModal;
+end;
+
+procedure TMainForm.ToolButton5Click(Sender: TObject);
+begin
+  FormEvents.ShowModal;
 end;
 
 end.

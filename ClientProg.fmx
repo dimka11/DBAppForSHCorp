@@ -1,0 +1,1311 @@
+object FormClientProg: TFormClientProg
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 1000
+  ClientWidth = 893
+  StyleBook = StyleBook1
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 893.000000000000000000
+    Size.Height = 1000.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 6
+    TabOrder = 0
+    TabPosition = PlatformDefault
+    Sizes = (
+      893s
+      974s
+      893s
+      974s
+      893s
+      974s
+      893s
+      974s
+      893s
+      974s
+      893s
+      974s
+      893s
+      974s
+      893s
+      974s
+      893s
+      974s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 139.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1055#1088#1086#1075#1088#1072#1084#1084#1072' '#1084#1080#1085#1080#1084#1091#1084
+      ExplicitSize.cx = 139.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object ScrollBox2: TScrollBox
+        Align = Client
+        Size.Width = 893.000000000000000000
+        Size.Height = 974.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 893.000000000000000000
+        Viewport.Height = 974.000000000000000000
+        object GridPanelLayout2: TGridPanelLayout
+          Align = Top
+          Size.Width = 893.000000000000000000
+          Size.Height = 974.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          ColumnCollection = <
+            item
+              Value = 24.729478891759740000
+            end
+            item
+              Value = 24.910053867322200000
+            end
+            item
+              Value = 25.135772586775290000
+            end
+            item
+              Value = 25.224694654142770000
+            end>
+          ControlCollection = <
+            item
+              Column = 0
+              Control = Panel65
+              Row = 0
+            end
+            item
+              Column = 1
+              Control = Panel66
+              Row = 0
+            end
+            item
+              Column = 2
+              Control = Panel67
+              Row = 0
+            end
+            item
+              Column = 3
+              Control = Panel68
+              Row = 0
+            end
+            item
+              Column = 0
+              Control = Panel69
+              Row = 1
+            end
+            item
+              Column = 1
+              Control = Panel70
+              Row = 1
+            end
+            item
+              Column = 2
+              Control = Panel71
+              Row = 1
+            end
+            item
+              Column = 3
+              Control = Panel72
+              Row = 1
+            end
+            item
+              Column = 0
+              Control = Panel73
+              Row = 2
+            end
+            item
+              Column = 1
+              Control = Panel74
+              Row = 2
+            end
+            item
+              Column = 2
+              Control = Panel75
+              Row = 2
+            end
+            item
+              Column = 3
+              Control = Panel76
+              Row = 2
+            end
+            item
+              Column = 0
+              Control = Panel77
+              Row = 3
+            end
+            item
+              Column = 1
+              Control = Panel78
+              Row = 3
+            end
+            item
+              Column = 2
+              Control = Panel79
+              Row = 3
+            end
+            item
+              Column = 3
+              Control = Panel80
+              Row = 3
+            end
+            item
+              Column = 0
+              Control = Panel81
+              Row = 4
+            end
+            item
+              Column = 1
+              Control = Panel82
+              Row = 4
+            end
+            item
+              Column = 2
+              Control = Panel83
+              Row = 4
+            end
+            item
+              Column = 3
+              Control = Panel84
+              Row = 4
+            end
+            item
+              Column = 0
+              Control = Panel85
+              Row = 5
+            end
+            item
+              Column = 1
+              Control = Panel86
+              Row = 5
+            end
+            item
+              Column = 2
+              Control = Panel87
+              Row = 5
+            end
+            item
+              Column = 3
+              Control = Panel88
+              Row = 5
+            end
+            item
+              Column = 0
+              Control = Panel89
+              Row = 6
+            end
+            item
+              Column = 1
+              Control = Panel90
+              Row = 6
+            end
+            item
+              Column = 2
+              Control = Panel91
+              Row = 6
+            end
+            item
+              Column = 3
+              Control = Panel92
+              Row = 6
+            end
+            item
+              Column = 0
+              Control = Panel93
+              Row = 7
+            end
+            item
+              Column = 1
+              Control = Panel94
+              Row = 7
+            end
+            item
+              Column = 2
+              Control = Panel95
+              Row = 7
+            end
+            item
+              Column = 3
+              Control = Panel96
+              Row = 7
+            end
+            item
+              Column = 0
+              Control = Panel97
+              Row = 8
+            end
+            item
+              Column = 1
+              Control = Panel98
+              Row = 8
+            end
+            item
+              Column = 2
+              Control = Panel99
+              Row = 8
+            end
+            item
+              Column = 3
+              Control = Panel100
+              Row = 8
+            end
+            item
+              Column = 0
+              Control = Panel101
+              Row = 9
+            end
+            item
+              Column = 1
+              Control = Panel102
+              Row = 9
+            end
+            item
+              Column = 2
+              Control = Panel103
+              Row = 9
+            end
+            item
+              Column = 3
+              Control = Panel104
+              Row = 9
+            end
+            item
+              Column = 0
+              Control = Panel105
+              Row = 10
+            end
+            item
+              Column = 1
+              Control = Panel106
+              Row = 10
+            end
+            item
+              Column = 2
+              Control = Panel107
+              Row = 10
+            end
+            item
+              Column = 3
+              Control = Panel108
+              Row = 10
+            end
+            item
+              Column = 0
+              Control = Panel109
+              Row = 11
+            end
+            item
+              Column = 1
+              Control = Panel110
+              Row = 11
+            end
+            item
+              Column = 2
+              Control = Panel111
+              Row = 11
+            end
+            item
+              Column = 3
+              Control = Panel112
+              Row = 11
+            end
+            item
+              Column = 0
+              Control = Panel113
+              Row = 12
+            end
+            item
+              Column = 1
+              Control = Panel114
+              Row = 12
+            end
+            item
+              Column = 2
+              Control = Panel115
+              Row = 12
+            end
+            item
+              Column = 3
+              Control = Panel116
+              Row = 12
+            end
+            item
+              Column = 0
+              Control = Panel117
+              Row = 13
+            end
+            item
+              Column = 1
+              Control = Panel118
+              Row = 13
+            end
+            item
+              Column = 2
+              Control = Panel119
+              Row = 13
+            end
+            item
+              Column = 3
+              Control = Panel120
+              Row = 13
+            end
+            item
+              Column = 0
+              Control = Panel121
+              Row = 14
+            end
+            item
+              Column = 1
+              Control = Panel122
+              Row = 14
+            end
+            item
+              Column = 2
+              Control = Panel123
+              Row = 14
+            end
+            item
+              Column = 3
+              Control = Panel124
+              Row = 14
+            end
+            item
+              Column = 0
+              Control = Panel125
+              Row = 15
+            end
+            item
+              Column = 1
+              Control = Panel126
+              Row = 15
+            end
+            item
+              Column = 2
+              Control = Panel127
+              Row = 15
+            end
+            item
+              Column = 3
+              Control = Panel128
+              Row = 15
+            end>
+          RowCollection = <
+            item
+              Value = 6.429712623379100000
+            end
+            item
+              Value = 6.367698814114191000
+            end
+            item
+              Value = 6.315676462029969000
+            end
+            item
+              Value = 6.273388925192864000
+            end
+            item
+              Value = 6.240467875040037000
+            end
+            item
+              Value = 6.216423749104815000
+            end
+            item
+              Value = 6.200636222122984000
+            end
+            item
+              Value = 6.192344837741201000
+            end
+            item
+              Value = 6.190639973418062000
+            end
+            item
+              Value = 6.194454346237189000
+            end
+            item
+              Value = 6.202555307891996000
+            end
+            item
+              Value = 6.213538223787863000
+            end
+            item
+              Value = 6.225821284866173000
+            end
+            item
+              Value = 6.237642162316767000
+            end
+            item
+              Value = 6.247056985857583000
+            end
+            item
+              Value = 6.251942206899215000
+            end
+            item
+              SizeStyle = Auto
+              Value = 6.250000000000000000
+            end>
+          object Panel65: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 62.625400543212890000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Label20: TLabel
+              Align = Center
+              Size.Width = 78.000000000000000000
+              Size.Height = 25.000000000000000000
+              Size.PlatformDefault = False
+              Text = #1053#1072#1087#1088#1072#1074#1083#1077#1085#1080#1103
+              TabOrder = 0
+            end
+          end
+          object Panel66: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 62.625400543212890000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Label21: TLabel
+              Align = Center
+              Size.Width = 61.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              Text = #1063#1048#1057#1058#1054#1058#1040
+              TabOrder = 0
+            end
+          end
+          object Panel67: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 62.625400543212890000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object Label22: TLabel
+              Align = Center
+              Size.Width = 60.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              Text = #1069#1053#1045#1056#1043#1048#1071
+              TabOrder = 0
+            end
+          end
+          object Panel68: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 62.625400543212890000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            object Label23: TLabel
+              Align = Center
+              Text = #1043#1040#1056#1052#1054#1053#1048#1071
+              TabOrder = 0
+            end
+          end
+          object Panel69: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 62.021389007568360000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 4
+            object Label24: TLabel
+              StyleName = 'WhiteTextLabelStyle'
+              Align = Center
+              StyledSettings = [Size, Style, FontColor]
+              Size.Width = 210.000000000000000000
+              Size.Height = 47.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1047#1044#1054#1056#1054#1042#1067#1045' '#1046#1045#1051#1059#1044#1054#1050' '#1048' '#1050#1048#1064#1045#1063#1053#1048#1050
+              TabOrder = 0
+            end
+          end
+          object Panel70: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 62.021389007568360000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 5
+            object Label1: TLabel
+              Align = Center
+              Text = #1051#1080#1084#1092#1086#1089#1072#1085'-3'
+              TabOrder = 1
+            end
+          end
+          object Panel71: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 62.021389007568360000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 6
+          end
+          object Panel72: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 62.021389007568360000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 7
+          end
+          object Panel73: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 61.514694213867190000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 8
+            object Label25: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1042#1067#1057#1054#1050#1040#1071' '#1056#1040#1041#1054#1058#1054#1057#1055#1054#1057#1054#1041#1053#1054#1057#1058#1068
+              TabOrder = 0
+            end
+          end
+          object Panel74: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 61.514694213867190000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 9
+          end
+          object Panel75: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 61.514694213867190000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 10
+          end
+          object Panel76: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 61.514694213867190000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 11
+          end
+          object Panel77: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 61.102813720703130000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 12
+            object Label26: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 16.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1057#1048#1051#1068#1053#1067#1049' '#1048#1052#1052#1059#1053#1048#1058#1045#1058
+              TabOrder = 0
+            end
+          end
+          object Panel78: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 61.102813720703130000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 13
+          end
+          object Panel79: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 61.102813720703130000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 14
+          end
+          object Panel80: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 61.102813720703130000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 15
+          end
+          object Panel81: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.782150268554690000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 16
+            object Label27: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1052#1059#1046#1057#1050#1054#1045' '#1047#1044#1054#1056#1054#1042#1068#1045
+              TabOrder = 0
+            end
+          end
+          object Panel82: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.782150268554690000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 17
+          end
+          object Panel83: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.782150268554690000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 18
+          end
+          object Panel84: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.782150268554690000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 19
+          end
+          object Panel85: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.547973632812510000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 20
+            object Label28: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1046#1045#1053#1057#1050#1054#1045' '#1047#1044#1054#1056#1054#1042#1068#1045
+              TabOrder = 0
+            end
+          end
+          object Panel86: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.547973632812510000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 21
+          end
+          object Panel87: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.547973632812510000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 22
+          end
+          object Panel88: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.547973632812510000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 23
+          end
+          object Panel89: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.394195556640630000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 24
+            object Label29: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1047#1044#1054#1056#1054#1042#1040#1071' '#1055#1045#1063#1045#1053#1068
+              TabOrder = 0
+            end
+          end
+          object Panel90: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.394195556640630000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 25
+          end
+          object Panel91: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.394195556640630000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 26
+          end
+          object Panel92: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.394195556640630000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 27
+          end
+          object Panel93: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.313446044921870000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 28
+            object Label30: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1047#1044#1054#1056#1054#1042#1067#1045' '#1057#1045#1056#1044#1062#1045' '#1048' '#1057#1054#1057#1059#1044#1067
+              TabOrder = 0
+            end
+          end
+          object Panel94: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.313446044921870000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 29
+          end
+          object Panel95: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.313446044921870000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 30
+          end
+          object Panel96: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.313446044921870000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 31
+          end
+          object Panel97: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.296813964843750000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 32
+            object Label31: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1047#1044#1054#1056#1054#1042#1067#1045' '#1055#1054#1063#1050#1048
+              TabOrder = 0
+            end
+          end
+          object Panel98: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.296813964843750000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 33
+          end
+          object Panel99: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.296813964843750000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 34
+          end
+          object Panel100: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.296813964843750000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 35
+          end
+          object Panel101: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.333984375000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 36
+            object Label32: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1055#1056#1054#1060#1048#1051#1040#1050#1058#1048#1050#1040' '#1044#1048#1040#1041#1045#1058#1040
+              TabOrder = 0
+            end
+          end
+          object Panel102: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.333984375000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 37
+          end
+          object Panel103: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.333984375000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 38
+          end
+          object Panel104: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.333984375000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 39
+          end
+          object Panel105: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.412902832031240000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 40
+            object Label33: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1057#1058#1040#1051#1068#1053#1067#1045' '#1053#1045#1056#1042#1067
+              TabOrder = 0
+            end
+          end
+          object Panel106: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.412902832031240000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 41
+          end
+          object Panel107: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.412902832031240000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 42
+          end
+          object Panel108: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.412902832031240000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 43
+          end
+          object Panel109: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.519836425781250000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 44
+            object Label34: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1054#1058#1051#1048#1063#1053#1054#1045' '#1047#1056#1045#1053#1048#1045
+              TabOrder = 0
+            end
+          end
+          object Panel110: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.519836425781250000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 45
+          end
+          object Panel111: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.519836425781250000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 46
+          end
+          object Panel112: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.519836425781250000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 47
+          end
+          object Panel113: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.639526367187490000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 48
+            object Label35: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1043#1048#1041#1050#1048#1045' '#1057#1059#1057#1058#1040#1042#1067
+              TabOrder = 0
+            end
+          end
+          object Panel114: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.639526367187490000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 49
+          end
+          object Panel115: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.639526367187490000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 50
+          end
+          object Panel116: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.639526367187490000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 51
+          end
+          object Panel117: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.754638671875000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 52
+            object Label36: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1055#1056#1054#1060#1048#1051#1040#1050#1058#1048#1050#1040' '#1040#1051#1051#1045#1056#1043#1048#1048
+              TabOrder = 0
+            end
+          end
+          object Panel118: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.754638671875000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 53
+          end
+          object Panel119: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.754638671875000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 54
+          end
+          object Panel120: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.754638671875000000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 55
+          end
+          object Panel121: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.846313476562500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 56
+            object Label37: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1050#1056#1045#1055#1050#1048#1045' '#1050#1054#1057#1058#1048
+              TabOrder = 0
+            end
+          end
+          object Panel122: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.846313476562500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 57
+          end
+          object Panel123: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.846313476562500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 58
+          end
+          object Panel124: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.846313476562500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 59
+          end
+          object Panel125: TPanel
+            Align = Client
+            Size.Width = 220.834243774414000000
+            Size.Height = 60.893920898437500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel5Style1'
+            TabOrder = 60
+            object Label38: TLabel
+              Align = Center
+              Size.Width = 210.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'Label5Style1'
+              Text = #1050#1054#1053#1058#1056#1054#1051#1068' '#1042#1045#1057#1040
+              TabOrder = 0
+            end
+          end
+          object Panel126: TPanel
+            Align = Client
+            Size.Width = 222.446762084960900000
+            Size.Height = 60.893920898437500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel6Style1'
+            TabOrder = 61
+          end
+          object Panel127: TPanel
+            Align = Client
+            Size.Width = 224.462463378906200000
+            Size.Height = 60.893920898437500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel7Style1'
+            TabOrder = 62
+          end
+          object Panel128: TPanel
+            Align = Client
+            Size.Width = 225.256530761718800000
+            Size.Height = 60.893920898437500000
+            Size.PlatformDefault = False
+            StyleLookup = 'Panel8Style1'
+            TabOrder = 63
+          end
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 143.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1055#1088#1086#1075#1088#1072#1084#1084#1072' '#1084#1072#1082#1089#1080#1084#1091#1084
+      ExplicitSize.cx = 143.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItem3: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 146.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1047#1076#1086#1088#1086#1074#1100#1077' '#1080' '#1084#1086#1083#1086#1076#1086#1089#1090#1100
+      ExplicitSize.cx = 146.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItem4: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 97.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1059#1093#1086#1076' '#1079#1072' '#1090#1077#1083#1086#1084
+      ExplicitSize.cx = 97.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItem5: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 100.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1059#1093#1086#1076' '#1079#1072' '#1083#1080#1094#1086#1084
+      ExplicitSize.cx = 100.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItem6: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 136.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1057#1087#1086#1088#1090#1080#1074#1085#1086#1077' '#1087#1080#1090#1072#1085#1080#1077
+      ExplicitSize.cx = 136.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItem7: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 120.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1044#1077#1090#1089#1082#1086#1077' '#1079#1076#1086#1088#1086#1074#1100#1077
+      ExplicitSize.cx = 120.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItem8: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 146.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1069#1082#1086' '#1089#1088#1077#1076#1089#1090#1074#1072' '#1076#1083#1103' '#1076#1086#1084#1072
+      ExplicitSize.cx = 146.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+    object TabItem9: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 231.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #1057#1093#1077#1084#1072' '#1082#1086#1084#1087#1083#1077#1082#1089#1085#1086#1075#1086' '#1087#1088#1080#1084#1077#1085#1077#1085#1080#1103' '#1073#1072#1076
+      ExplicitSize.cx = 231.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end
+      item
+        Platform = 'Windows 10 Desktop'
+        ResourcesBin = {
+          464D585F5354594C4520322E3501060C50616E656C355374796C653103BB0006
+          0C50616E656C365374796C653103BB00060A50616E656C7374796C6503B90006
+          0C50616E656C375374796C653103BB00060C50616E656C385374796C653103BB
+          00060C4C6162656C355374796C6531037401060A4C6162656C7374796C650307
+          0100545046300A5452656374616E676C6500095374796C654E616D65060C5061
+          6E656C355374796C653105416C69676E070643656E7465720A46696C6C2E436F
+          6C6F7207097846463244363333360748697454657374080A53697A652E576964
+          746805000000000091D5DC06400B53697A652E48656967687405000000000015
+          F08A04401453697A652E506C6174666F726D44656661756C74080C5374726F6B
+          652E436F6C6F7207097846464343434343430756697369626C65080000545046
+          300A5452656374616E676C6500095374796C654E616D65060C50616E656C3653
+          74796C653105416C69676E070643656E7465720A46696C6C2E436F6C6F720709
+          7846464439454246330748697454657374080A53697A652E5769647468050000
+          0000005F72DE06400B53697A652E48656967687405000000000015F08A044014
+          53697A652E506C6174666F726D44656661756C74080C5374726F6B652E436F6C
+          6F7207097846464343434343430756697369626C65080000545046300A545265
+          6374616E676C6500095374796C654E616D65060A50616E656C7374796C650541
+          6C69676E070643656E7465720A46696C6C2E436F6C6F72070978464646304630
+          46300748697454657374080A53697A652E57696474680500000000005F72DE06
+          400B53697A652E48656967687405000000000015F08A04401453697A652E506C
+          6174666F726D44656661756C74080C5374726F6B652E436F6C6F720709784646
+          4343434343430756697369626C65080000545046300A5452656374616E676C65
+          00095374796C654E616D65060C50616E656C375374796C653105416C69676E07
+          0643656E7465720A46696C6C2E436F6C6F720709784646464246424432074869
+          7454657374080A53697A652E57696474680500000000006476E006400B53697A
+          652E48656967687405000000000015F08A04401453697A652E506C6174666F72
+          6D44656661756C74080C5374726F6B652E436F6C6F7207097846464343434343
+          430756697369626C65080000545046300A5452656374616E676C650009537479
+          6C654E616D65060C50616E656C385374796C653105416C69676E070643656E74
+          65720A46696C6C2E436F6C6F7207097846464531463343440748697454657374
+          080A53697A652E5769647468050000000000AC41E106400B53697A652E486569
+          67687405000000000015F08A04401453697A652E506C6174666F726D44656661
+          756C74080C5374726F6B652E436F6C6F72070978464643434343434307566973
+          69626C650800005450463007544C61796F7574135768697465546578744C6162
+          656C5374796C65095374796C654E616D65060C4C6162656C355374796C653105
+          416C69676E070643656E7465720A53697A652E57696474680500000000000000
+          D206400B53697A652E48656967687405000000000000008803401453697A652E
+          506C6174666F726D44656661756C74080756697369626C6508085461624F7264
+          657202050005545465787400095374796C654E616D6506047465787405416C69
+          676E0706436C69656E74064C6F636B6564090748697454657374080A53697A65
+          2E57696474680500000000000000D206400B53697A652E486569676874050000
+          00000000008803401453697A652E506C6174666F726D44656661756C74080454
+          6578740604546578741A5465787453657474696E67732E466F6E742E5374796C
+          654578740A0D0000000007000000000000000400000016546578745365747469
+          6E67732E466F6E74436F6C6F7207097846464636463446340000005450463007
+          544C61796F757400095374796C654E616D65060A4C6162656C7374796C650541
+          6C69676E070643656E7465720A53697A652E57696474680500000000000000D2
+          06400B53697A652E48656967687405000000000000008803401453697A652E50
+          6C6174666F726D44656661756C7408085461624F726465720206000554546578
+          7400095374796C654E616D6506047465787405416C69676E0706436C69656E74
+          064C6F636B6564090748697454657374080A53697A652E576964746805000000
+          00000000D206400B53697A652E48656967687405000000000000008803401453
+          697A652E506C6174666F726D44656661756C7408045465787406045465787400
+          0000}
+      end>
+  end
+end

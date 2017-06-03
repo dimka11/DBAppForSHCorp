@@ -2,7 +2,7 @@ object DMl: TDMl
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 406
-  Width = 652
+  Width = 863
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
@@ -24,6 +24,7 @@ object DMl: TDMl
     Top = 8
   end
   object ADOStoredProcGuestView: TADOStoredProc
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     Filtered = True
@@ -58,7 +59,58 @@ object DMl: TDMl
   end
   object DataSourceEvents: TDataSource
     DataSet = ADOQueryEvents
-    Left = 72
+    Left = 24
+    Top = 312
+  end
+  object ADOQuerySchedule: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT ID, Mon AS '#1055#1086#1085#1077#1076#1077#1083#1100#1085#1080#1082', Tue AS '#1042#1090#1086#1088#1085#1080#1082', Wed AS '#1057#1088#1077#1076#1072', Thu' +
+        ' AS '#1063#1077#1090#1074#1077#1088#1075', Fri AS '#1055#1103#1090#1085#1080#1082#1072', Sat AS '#1057#1091#1073#1073#1086#1090#1072', Sun AS '#1042#1086#1089#1082#1088#1077#1089#1077#1085#1100#1077
+      'FROM Schedule')
+    Left = 112
+    Top = 280
+  end
+  object DataSourceSchedule: TDataSource
+    DataSet = ADOQuerySchedule
+    Left = 120
+    Top = 320
+  end
+  object DataSourceEmp: TDataSource
+    DataSet = ADOStoredProcGetEmp
+    Left = 216
+    Top = 320
+  end
+  object ADOQueryStore: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT ID, Title AS '#1053#1072#1079#1074#1072#1085#1080#1077', Address AS '#1040#1076#1088#1077#1089', Phone AS '#1058#1077#1083#1077#1092#1086#1085 +
+        ', Image'
+      'FROM Store')
+    Left = 312
+    Top = 304
+  end
+  object DataSourceStore: TDataSource
+    DataSet = ADOQueryStore
+    OnDataChange = DataSourceStoreDataChange
+    Left = 320
     Top = 248
+  end
+  object ADOStoredProcGetEmp: TADOStoredProc
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    ProcedureName = 'GetEmployee'
+    Parameters = <>
+    Left = 208
+    Top = 264
   end
 end

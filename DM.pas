@@ -13,10 +13,17 @@ type
     ADOStoredProcLogin: TADOStoredProc;
     ADOQueryEvents: TADOQuery;
     DataSourceEvents: TDataSource;
+    ADOQuerySchedule: TADOQuery;
+    DataSourceSchedule: TDataSource;
+    DataSourceEmp: TDataSource;
+    ADOQueryStore: TADOQuery;
+    DataSourceStore: TDataSource;
+    ADOStoredProcGetEmp: TADOStoredProc;
     procedure DataModuleCreate(Sender: TObject);
     procedure DoConDB;
     procedure ActivateData;
     procedure DataSourceGuestViewDataChange(Sender: TObject; Field: TField);
+    procedure DataSourceStoreDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
   public
@@ -30,7 +37,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses Guest;
+uses Guest, SubMain, Main;
 
 {$R *.dfm}
 
@@ -39,6 +46,9 @@ begin
   ADOStoredProcLogin.Active := True;
   ADOStoredProcGuestView.Active := True;
   ADOQueryEvents.Active := True;
+  ADOQuerySchedule.Active := True;
+  ADOStoredProcGetEmp.Active := True;
+  ADOQueryStore.Active := True;
 end;
 
 procedure TDMl.DataModuleCreate(Sender: TObject);
@@ -52,6 +62,14 @@ begin
   GuestForm.LoadImage;
   GuestForm.LabelLoadText;
   GuestForm.StatusBarUpdate;
+  MainForm.LoadImage;
+  MainForm.LabelLoadText;
+  MainForm.StatusBarUpdate;
+end;
+
+procedure TDMl.DataSourceStoreDataChange(Sender: TObject; Field: TField);
+begin
+ // SubMainForm.LoadImage;
 end;
 
 procedure TDMl.DoConDB;

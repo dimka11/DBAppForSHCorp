@@ -16,7 +16,10 @@ uses
   RecCir in 'RecCir.pas' {FormRecCir},
   SubMain in 'SubMain.pas' {SubMainForm},
   ShowModalImage in 'ShowModalImage.pas' {FormShowModalImage},
-  Events in 'Events.pas' {FormEvents};
+  Events in 'Events.pas' {FormEvents},
+  Schedule in 'Schedule.pas' {FormSchedule},
+  EditEmp in 'EditEmp.pas' {EditEmpForm},
+  Stat in 'Stat.pas' {StatForm};
 
 {ClientProgramsForm}
 
@@ -32,6 +35,10 @@ begin
   Application.CreateForm(TLoginForm, LoginForm);
   Application.CreateForm(TFormShowModalImage, FormShowModalImage);
   Application.CreateForm(TFormEvents, FormEvents);
+  Application.CreateForm(TFormSchedule, FormSchedule);
+  Application.CreateForm(TEditEmpForm, EditEmpForm);
+  Application.CreateForm(TEditEmpForm, EditEmpForm);
+  Application.CreateForm(TStatForm, StatForm);
   LoginForm.Visible := True;
   Application.CreateForm(TAboutForm, AboutForm);
   Application.CreateForm(TClientProgramsForm, ClientProgramsForm);

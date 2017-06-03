@@ -2,7 +2,7 @@ object GuestForm: TGuestForm
   Left = 244
   Top = 165
   Caption = #1055#1088#1086#1076#1091#1082#1094#1080#1103' '#1082#1086#1084#1087#1072#1085#1080#1080#1080
-  ClientHeight = 339
+  ClientHeight = 430
   ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,7 +24,7 @@ object GuestForm: TGuestForm
     Left = 0
     Top = 225
     Width = 969
-    Height = 95
+    Height = 186
     Align = alClient
     DataSource = DMl.DataSourceGuestView
     Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -41,7 +41,7 @@ object GuestForm: TGuestForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 320
+    Top = 411
     Width = 969
     Height = 19
     Panels = <
@@ -51,6 +51,7 @@ object GuestForm: TGuestForm
       item
         Width = 200
       end>
+    ExplicitTop = 300
   end
   object Panel1: TPanel
     Left = 0
@@ -131,7 +132,6 @@ object GuestForm: TGuestForm
         ParentFont = False
         WordWrap = True
         ExplicitTop = 18
-        ExplicitWidth = 264
       end
       object LabelURL: TLabel
         Left = 14
@@ -391,7 +391,7 @@ object GuestForm: TGuestForm
         'SELECT Title AS '#1053#1072#1079#1074#1072#1085#1080#1077', CurrentPrice & '#39' '#1088#1091#1073'.'#39' AS '#1062#1077#1085#1072', TRIM(S' +
         'ubCategory) AS '#1050#1072#1090#1077#1075#1086#1088#1080#1103
       'FROM Product')
-    Left = 160
+    Left = 128
     Top = 104
   end
 end

@@ -137,6 +137,18 @@
             <Form>FormEvents</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Schedule.pas">
+            <Form>FormSchedule</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="EditEmp.pas">
+            <Form>EditEmpForm</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Stat.pas">
+            <Form>StatForm</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_DBApp\default.txaPackage"/>
         <None Include="Win32\Release\DB\Database.accdb"/>
         <BuildConfiguration Include="Release">

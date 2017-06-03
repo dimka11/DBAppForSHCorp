@@ -166,6 +166,8 @@ begin
     ShowMessage('Не удалось подключиться к БД');
   DMl.ADOStoredProcLogin.Active := True;
 
+  ComboBox1.Clear;
+  DMl.ADOStoredProcLogin.First;
   for I := 0 to Dml.ADOStoredProcLogin.RecordCount -1  do // Заполнение комбобокса
   begin
     ComboBox1.Items.Add(Dml.ADOStoredProcLogin.FieldByName('Login').AsString);

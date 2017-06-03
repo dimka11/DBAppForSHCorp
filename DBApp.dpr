@@ -33,7 +33,7 @@ begin
   LoginForm.Visible := True;
   Application.CreateForm(TAboutForm, AboutForm);
   Application.CreateForm(TClientProgramsForm, ClientProgramsForm);
-  //Application.CreateForm(TFormClientProg, FormClientProg); //FMX Form
+  Application.CreateForm(TFormClientProg, FormClientProg); //FMX Form
   Application.CreateForm(TClPrForm, ClPrForm);
   Application.CreateForm(TFormSkinType, FormSkinType);
   Application.CreateForm(TFormRecCir, FormRecCir);

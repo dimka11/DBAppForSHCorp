@@ -2,8 +2,8 @@ object GuestForm: TGuestForm
   Left = 244
   Top = 165
   Caption = #1055#1088#1086#1076#1091#1082#1094#1080#1103' '#1082#1086#1084#1087#1072#1085#1080#1080#1080
-  ClientHeight = 379
-  ClientWidth = 964
+  ClientHeight = 339
+  ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,8 +23,8 @@ object GuestForm: TGuestForm
   object DBGrid1: TDBGrid
     Left = 0
     Top = 225
-    Width = 964
-    Height = 135
+    Width = 969
+    Height = 95
     Align = alClient
     DataSource = DMl.DataSourceGuestView
     Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -41,8 +41,8 @@ object GuestForm: TGuestForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 360
-    Width = 964
+    Top = 320
+    Width = 969
     Height = 19
     Panels = <
       item
@@ -55,7 +55,7 @@ object GuestForm: TGuestForm
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 964
+    Width = 969
     Height = 225
     Align = alTop
     TabOrder = 2
@@ -66,7 +66,7 @@ object GuestForm: TGuestForm
       ExplicitHeight = 199
     end
     object Splitter2: TSplitter
-      Left = 659
+      Left = 664
       Top = 1
       Height = 223
       Align = alRight
@@ -77,7 +77,7 @@ object GuestForm: TGuestForm
     object Panel2: TPanel
       Left = 388
       Top = 1
-      Width = 271
+      Width = 276
       Height = 223
       Align = alClient
       Padding.Left = 5
@@ -116,7 +116,7 @@ object GuestForm: TGuestForm
       object LabelSubHeadline: TLabel
         Left = 6
         Top = 11
-        Width = 264
+        Width = 269
         Height = 78
         Margins.Top = 10
         Align = alTop
@@ -131,6 +131,7 @@ object GuestForm: TGuestForm
         ParentFont = False
         WordWrap = True
         ExplicitTop = 18
+        ExplicitWidth = 264
       end
       object LabelURL: TLabel
         Left = 14
@@ -148,9 +149,16 @@ object GuestForm: TGuestForm
         ParentFont = False
         OnClick = LabelURLClick
       end
+      object Label1: TLabel
+        Left = 281
+        Top = 192
+        Width = 30
+        Height = 13
+        Caption = #1055#1086#1080#1089#1082
+      end
       object EditFilter: TEdit
         Left = 6
-        Top = 189
+        Top = 197
         Width = 121
         Height = 21
         Hint = #1055#1086#1080#1089#1082' '#1087#1086' '#1085#1072#1079#1074#1072#1085#1080#1102
@@ -161,8 +169,8 @@ object GuestForm: TGuestForm
         OnChange = EditFilterChange
       end
       object EditFilterCat: TEdit
-        Left = 144
-        Top = 189
+        Left = 149
+        Top = 197
         Width = 121
         Height = 21
         Hint = #1055#1086#1080#1089#1082' '#1087#1086' '#1082#1072#1090#1077#1075#1086#1088#1080#1080
@@ -174,7 +182,7 @@ object GuestForm: TGuestForm
       end
     end
     object Panel3: TPanel
-      Left = 662
+      Left = 667
       Top = 1
       Width = 301
       Height = 223
@@ -228,7 +236,6 @@ object GuestForm: TGuestForm
             ReadOnly = True
             TabOrder = 0
             Zoom = 100
-            ExplicitLeft = -1
           end
           object Memo1: TMemo
             Left = 256
@@ -374,5 +381,18 @@ object GuestForm: TGuestForm
       ShortCut = 16457
       OnClick = MenuItemClick
     end
+  end
+  object ADOQueryExportWord: TADOQuery
+    Active = True
+    Connection = DMl.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT Title AS '#1053#1072#1079#1074#1072#1085#1080#1077', CurrentPrice & '#39' '#1088#1091#1073'.'#39' AS '#1062#1077#1085#1072', TRIM(S' +
+        'ubCategory) AS '#1050#1072#1090#1077#1075#1086#1088#1080#1103
+      'FROM Product')
+    Left = 160
+    Top = 104
   end
 end

@@ -58,7 +58,6 @@ begin
   // Подключение К БД
     if ADOConnection1.Connected = False then
     begin
-      ADOConnection1.Close;
       ADOConnection1.ConnectionString := Format(ConnStr,[ ExtractFilePath(ParamStr(0))+'\DB\Database.accdb' ]);
       ADOConnection1.Open;
     end;

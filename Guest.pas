@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Menus, Vcl.StdCtrls,
   Vcl.ComCtrls, Vcl.DBCtrls, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
-  Data.Win.ADODB, Vcl.Mask, ShellApi, Vcl.Imaging.jpeg;
+  Data.Win.ADODB, Vcl.Mask, ShellApi, Vcl.Imaging.jpeg, comobj, OleServer;
 
 type
   TGuestForm = class(TForm)
@@ -50,6 +50,8 @@ type
     N1: TMenuItem;
     N2: TMenuItem;
     N3: TMenuItem;
+    Label1: TLabel;
+    ADOQueryExportWord: TADOQuery;
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormShow(Sender: TObject);
     procedure SetGridView; // Настройка грида
@@ -69,6 +71,7 @@ type
     procedure StatusBarUpdate;
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure CreateWord(const visible: Boolean);
   private
     { Private declarations }
   public
@@ -97,6 +100,8 @@ type
 var
   GuestForm: TGuestForm;
   HandleMenuFunc: THandleMenuFunc;
+  WordObject: Variant;
+  WordTable, WordRow: OleVariant;
 
 
 implementation
@@ -112,6 +117,13 @@ begin
   Params.ExStyle   := Params.ExStyle or WS_EX_APPWINDOW;
   Params.WndParent := GetDesktopWindow;
 end;
+procedure TGuestForm.CreateWord(const visible: Boolean);
+begin
+  WordObject := CreateOleObject('Word.Application');
+  WordObject.visible := visible;
+  WordObject.Documents.Add;
+end;
+
 procedure TGuestForm.DBGrid1CellClick(Column: TColumn);
 begin
   LoadImage;
@@ -428,9 +440,74 @@ begin
   GuestForm.Close;
 end;
 
-procedure THandleMenuFunc.ExportPrice;
-begin
+procedure THandleMenuFunc.ExportPrice;  // ЭКСПОРТ ПРАЙСА В WORD
+var
 
+  I: Integer;
+begin
+  GuestForm.ADOQueryExportWord.Active := True;
+  GuestForm.CreateWord(False);
+   //«Создание отчета в новом документе Word».;
+   {
+«InsertBefore вставляет текст в начало содержимого Range - объекта работы с текстом»
+и «InsertAfter вставляет текст в конец содержимого Range».
+   }
+
+ // Word1.ActiveDocument.tables.item(1).columns.item(<номер столбца>).delete // удалить столбцы
+ //   Word1.activeDocument.PageSetup.Orientation := 1; // Альбомная
+  WordObject.activeDocument.PageSetup.Orientation := 1; // Книжная
+
+  //Word1.ActiveDocument.Range.InsertBefore (Form10.Caption + ' ');
+  WordObject.ActiveDocument.Range.InsertBefore ('Сибирское здоровье ');
+  WordObject.ActiveDocument.Range.InsertAfter (#13+#10+'Прайс-лист на продукцию компании:'+#13+#10);
+  WordObject.ActiveDocument.Range.InsertAfter ('ПРАЙС-ЛИСТ'+#13+#10+#13+#10);
+    //«Изменение параметров абзаца и шрифта».
+  WordObject.ActiveDocument.Range.ParagraphFormat.Alignment := 1;
+  WordObject.ActiveDocument.Range.Font.Name := 'Arial';
+  WordObject.ActiveDocument.Range.Font.Size := 14;
+  WordObject.ActiveDocument.Range.Font.Bold := True;
+  WordObject.ActiveDocument.Range.Characters.Last.Font.Size := 12;;   //Изменение формата абзаца со следующей строки
+  WordObject.ActiveDocument.Range.Characters.Last.Font.Bold := False;
+    //Создание таблицы
+  WordObject.ActiveDocument.Tables.Add(WordObject.ActiveDocument.Range.Characters.Last,1,GuestForm.ADOQueryExportWord.Fields.Count);
+  WordTable := WordObject.ActiveDocument.Tables.Item(1);
+  // Изменение ширины столбцов
+  begin                                                             // Ширина столбцов
+    WordObject.ActiveDocument.tables.item(1).columns.item(1).PreferredWidth := 200;
+    WordObject.ActiveDocument.tables.item(1).columns.item(2).PreferredWidth := 150;
+    WordObject.ActiveDocument.tables.item(1).columns.item(3).PreferredWidth := 200;
+
+  end;
+    for I := 1 to GuestForm.ADOQueryExportWord.FieldCount do
+      begin
+      WordTable.Cell(1,i).range.text := (GuestForm.ADOQueryExportWord.Fields[i-1].FieldName);
+      WordTable.Cell(1,i).range.font.bold := True;
+      end;
+  with GuestForm.ADOQueryExportWord do
+    while not eof do begin
+    //Добавляя новые строки
+    WordRow := WordTable.Rows.Add;
+    WordTable.Cell(WordRow.Index, 1).Range.ParagraphFormat.Alignment := 0;
+    WordTable.Cell(WordRow.Index, 2).Range.ParagraphFormat.Alignment := 0;
+    WordTable.Cell(WordRow.Index, 3).Range.ParagraphFormat.Alignment := 0;
+    for I := 1 to FieldCount do
+      // Вписываем в ячейки данные
+      begin
+      WordTable.Cell(WordRow.Index, i).Range.Text := Fields[i-1].AsString ;
+      WordTable.Cell(WordRow.Index,i).range.font.bold := False;
+     // WordTable.Cell(WordRow.Index,i).range.ParagraphFormat.Alignment := 0;
+      end;
+      GuestForm.ADOQueryExportWord.Next;
+    end;
+    WordTable.borders.enable := True;
+    WordObject.ActiveDocument.Range.Characters.Last.ParagraphFormat.Alignment := 0;
+    WordObject.ActiveDocument.Range.InsertAfter(#13+#10);
+    WordObject.ActiveDocument.Range.InsertAfter(#13+#10);
+    WordObject.ActiveDocument.Range.InsertAfter (Date);
+    WordObject.ActiveDocument.Tables.Item(1).PreferredWidthType := 2; //
+    WordObject.ActiveDocument.Tables.Item(1).PreferredWidth  := 100;
+    WordObject.visible := True;
+    WordObject.ActiveDocument.SaveAs(GetCurrentDir + '/Reports/Price.docx');
 end;
 
 procedure THandleMenuFunc.ShowAbout; // Показвать форму о программе.

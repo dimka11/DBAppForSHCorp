@@ -20,6 +20,11 @@ type
     DBEdit3: TDBEdit;
     Адрес: TLabel;
     DBRichEdit1: TDBRichEdit;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    procedure ToolButton1Click(Sender: TObject);
+    procedure ToolButton3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,5 +39,17 @@ implementation
 {$R *.dfm}
 
 uses DM;
+
+procedure TFormEditClient.ToolButton1Click(Sender: TObject);//Кнопка  добавить
+begin
+  if Application.MessageBox('Добавить?','',MB_YESNO)=IDYES then
+    DMl.ADOQueryGetClient.Append;
+end;
+
+procedure TFormEditClient.ToolButton3Click(Sender: TObject);//Кнопка удалить
+begin
+  if Application.MessageBox('Удалить?','',MB_YESNO)=IDYES then
+    DMl.ADOQueryGetClient.Delete;
+end;
 
 end.

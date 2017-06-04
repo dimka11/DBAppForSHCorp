@@ -218,10 +218,32 @@
     Top = 0
     Width = 527
     Height = 29
+    ButtonHeight = 21
+    ButtonWidth = 102
     Caption = 'ToolBar1'
+    ShowCaptions = True
     TabOrder = 2
-    ExplicitLeft = 344
-    ExplicitTop = 40
-    ExplicitWidth = 150
+    object ToolButton1: TToolButton
+      Left = 0
+      Top = 0
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1072
+      ImageIndex = 0
+      OnClick = ToolButton1Click
+    end
+    object ToolButton2: TToolButton
+      Left = 102
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton2'
+      ImageIndex = 1
+      Style = tbsSeparator
+    end
+    object ToolButton3: TToolButton
+      Left = 110
+      Top = 0
+      Caption = #1059#1076#1072#1083#1080#1090#1100' '#1082#1083#1080#1077#1085#1090#1072
+      ImageIndex = 1
+      OnClick = ToolButton3Click
+    end
   end
 end

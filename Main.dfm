@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   Caption = 'MainForm'
-  ClientHeight = 558
+  ClientHeight = 538
   ClientWidth = 968
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,25 +19,22 @@ object MainForm: TMainForm
     Left = 0
     Top = 289
     Width = 968
-    Height = 250
+    Height = 230
     Align = alClient
     Caption = 'BotPanel'
     TabOrder = 0
-    ExplicitTop = 230
-    ExplicitHeight = 346
     object Panel1: TPanel
       Left = 1
       Top = 1
       Width = 805
-      Height = 248
+      Height = 228
       Align = alClient
       Caption = 'Panel1'
       TabOrder = 0
-      ExplicitHeight = 180
       object Splitter1: TSplitter
         Left = 801
         Top = 1
-        Height = 246
+        Height = 226
         Align = alRight
         ExplicitLeft = 816
         ExplicitTop = 16
@@ -47,7 +44,7 @@ object MainForm: TMainForm
         Left = 1
         Top = 1
         Width = 800
-        Height = 246
+        Height = 226
         ActivePage = TabSheet2
         Align = alClient
         TabOrder = 0
@@ -56,12 +53,11 @@ object MainForm: TMainForm
         ExplicitTop = 3
         object TabSheet1: TTabSheet
           Caption = #1055#1088#1086#1076#1091#1082#1094#1080#1103
-          ExplicitHeight = 150
           object DBGridProduct: TDBGrid
             Left = 0
             Top = 0
             Width = 792
-            Height = 218
+            Height = 198
             Align = alClient
             DataSource = DMl.DataSourceGuestView
             TabOrder = 0
@@ -76,12 +72,11 @@ object MainForm: TMainForm
         object TabSheet2: TTabSheet
           Caption = #1050#1083#1080#1077#1085#1090#1099
           ImageIndex = 1
-          ExplicitHeight = 150
           object DBGridClient: TDBGrid
             Left = 0
             Top = 0
             Width = 792
-            Height = 218
+            Height = 198
             Align = alClient
             DataSource = DMl.DataSourceGetClient
             TabOrder = 0
@@ -96,13 +91,13 @@ object MainForm: TMainForm
         object TabSheet3: TTabSheet
           Caption = #1047#1072#1082#1072#1079#1099
           ImageIndex = 2
-          ExplicitHeight = 150
           object DBGrid3: TDBGrid
             Left = 0
             Top = 0
             Width = 792
-            Height = 218
+            Height = 198
             Align = alClient
+            DataSource = DMl.DataSourceGetOrder
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
@@ -117,10 +112,9 @@ object MainForm: TMainForm
       Left = 806
       Top = 1
       Width = 161
-      Height = 248
+      Height = 228
       Align = alRight
       TabOrder = 1
-      ExplicitHeight = 180
       object SpeedButton1: TSpeedButton
         Left = 1
         Top = 211
@@ -128,7 +122,7 @@ object MainForm: TMainForm
         Height = 70
         Align = alTop
       end
-      object BitBtn1: TBitBtn
+      object BitBtnAdd: TBitBtn
         Left = 1
         Top = 1
         Width = 159
@@ -136,8 +130,9 @@ object MainForm: TMainForm
         Align = alTop
         Caption = #1044#1086#1073#1072#1074#1080#1090#1100
         TabOrder = 0
+        OnClick = BitBtnAddClick
       end
-      object BitBtn2: TBitBtn
+      object BitBtnEdit: TBitBtn
         Left = 1
         Top = 71
         Width = 159
@@ -145,8 +140,11 @@ object MainForm: TMainForm
         Align = alTop
         Caption = #1048#1079#1084#1077#1085#1080#1090#1100
         TabOrder = 1
+        OnClick = BitBtnEditClick
+        ExplicitLeft = 2
+        ExplicitTop = 65
       end
-      object BitBtn3: TBitBtn
+      object BitBtnDelete: TBitBtn
         Left = 1
         Top = 141
         Width = 159
@@ -154,12 +152,13 @@ object MainForm: TMainForm
         Align = alTop
         Caption = #1059#1076#1072#1083#1080#1090#1100
         TabOrder = 2
+        OnClick = BitBtnDeleteClick
       end
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 539
+    Top = 519
     Width = 968
     Height = 19
     Panels = <
@@ -172,7 +171,6 @@ object MainForm: TMainForm
       item
         Width = 50
       end>
-    ExplicitTop = 412
   end
   object TopPanel: TPanel
     Left = 0
@@ -190,7 +188,6 @@ object MainForm: TMainForm
       Align = alRight
       Caption = 'RightPanel'
       TabOrder = 0
-      ExplicitHeight = 199
       object Image1: TImage
         Left = 4
         Top = 1
@@ -219,7 +216,6 @@ object MainForm: TMainForm
       Height = 258
       Align = alLeft
       TabOrder = 1
-      ExplicitHeight = 199
       object Splitter2: TSplitter
         Left = 412
         Top = 1
@@ -236,8 +232,6 @@ object MainForm: TMainForm
         Height = 170
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 4
-        ExplicitHeight = 111
         object LabelSubHeadLine: TLabel
           Left = 12
           Top = 4
@@ -298,8 +292,6 @@ object MainForm: TMainForm
         Height = 86
         Align = alBottom
         TabOrder = 1
-        ExplicitTop = 112
-        ExplicitWidth = 246
         object EditFilter: TEdit
           Left = 19
           Top = 6
@@ -328,9 +320,6 @@ object MainForm: TMainForm
       Align = alClient
       Caption = 'MidPanel'
       TabOrder = 2
-      ExplicitLeft = 249
-      ExplicitWidth = 455
-      ExplicitHeight = 199
       object PageControl2: TPageControl
         Left = 1
         Top = 1
@@ -339,11 +328,8 @@ object MainForm: TMainForm
         ActivePage = TabSheet8
         Align = alClient
         TabOrder = 0
-        ExplicitHeight = 197
         object TabSheet7: TTabSheet
           Caption = #1054#1087#1080#1089#1072#1085#1080#1077
-          ExplicitWidth = 445
-          ExplicitHeight = 169
           object DBRichEdit1: TDBRichEdit
             Left = 0
             Top = 0
@@ -359,16 +345,11 @@ object MainForm: TMainForm
             Font.Style = []
             TabOrder = 0
             Zoom = 100
-            ExplicitLeft = 24
-            ExplicitWidth = 421
-            ExplicitHeight = 169
           end
         end
         object TabSheet8: TTabSheet
           Caption = #1057#1086#1089#1090#1072#1074
           ImageIndex = 1
-          ExplicitWidth = 445
-          ExplicitHeight = 169
           object DBRichEdit2: TDBRichEdit
             Left = 0
             Top = 0
@@ -384,15 +365,11 @@ object MainForm: TMainForm
             Font.Style = []
             TabOrder = 0
             Zoom = 100
-            ExplicitWidth = 445
-            ExplicitHeight = 169
           end
         end
         object TabSheet9: TTabSheet
           Caption = #1055#1088#1080#1084#1077#1085#1077#1085#1080#1077
           ImageIndex = 2
-          ExplicitWidth = 445
-          ExplicitHeight = 169
           object DBRichEdit3: TDBRichEdit
             Left = 0
             Top = 0
@@ -408,10 +385,6 @@ object MainForm: TMainForm
             Font.Style = []
             TabOrder = 0
             Zoom = 100
-            ExplicitLeft = 249
-            ExplicitTop = 1
-            ExplicitWidth = 455
-            ExplicitHeight = 199
           end
         end
       end

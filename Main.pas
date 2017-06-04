@@ -41,9 +41,9 @@ type
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     SpeedButton1: TSpeedButton;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
+    BitBtnAdd: TBitBtn;
+    BitBtnEdit: TBitBtn;
+    BitBtnDelete: TBitBtn;
     PageControl2: TPageControl;
     TabSheet7: TTabSheet;
     TabSheet8: TTabSheet;
@@ -89,6 +89,9 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DBGridClientDrawDataCell(Sender: TObject; const Rect: TRect;
       Field: TField; State: TGridDrawState);
+    procedure BitBtnAddClick(Sender: TObject);
+    procedure BitBtnDeleteClick(Sender: TObject);
+    procedure BitBtnEditClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -103,9 +106,45 @@ implementation
 {$R *.dfm}
 
 uses RecCir, SkinTypeTest, ClientPrograms, Events, Schedule, SubMain, DM,
-  ShowModalImage;
+  ShowModalImage, EditProduct, EditClient, EditOrder;
 
 
+
+procedure TMainForm.BitBtnAddClick(Sender: TObject); //Кнопка добавления
+begin
+  if PageControl1.ActivePage = 0 then
+     if Application.MessageBox('Добавить?','',MB_YESNO)=IDYES then
+        DMl.ADOStoredProcGuestView.Append;
+  if PageControl1.ActivePage = 1 then
+     if Application.MessageBox('Добавить?','',MB_YESNO)=IDYES then
+        DMl.ADOQueryGetClient.Append;
+  if PageControl1.ActivePage = 2 then
+     if Application.MessageBox('Добавить?','',MB_YESNO)=IDYES then
+        DMl.ADOStoredProcGetOrder.Append;
+end;
+
+procedure TMainForm.BitBtnDeleteClick(Sender: TObject); //Кнопка удаления
+begin
+  if PageControl1.ActivePage = 0 then
+       if Application.MessageBox('Удалить?','',MB_YESNO)=IDYES then
+          DMl.ADOStoredProcGuestView.Delete;
+  if PageControl1.ActivePage = 0 then
+       if Application.MessageBox('Удалить?','',MB_YESNO)=IDYES then
+          DMl.ADOQueryGetClient.Delete;
+  if PageControl1.ActivePage = 0 then
+       if Application.MessageBox('Удалить?','',MB_YESNO)=IDYES then
+          DMl.ADOStoredProcGetOrder.Delete;
+end;
+
+procedure TMainForm.BitBtnEditClick(Sender: TObject); //Кнопка редактирования
+begin
+  if PageControl1.ActivePage = 0 then
+    FormEditProduct.ShowModal;
+  if PageControl1.ActivePage = 0 then
+    FormEditClient.ShowModal;
+  if PageControl1.ActivePage = 0 then
+    FormEditOrder.ShowModal;
+end;
 
 procedure TMainForm.DBGridClientDrawDataCell(Sender: TObject; const Rect: TRect;
   Field: TField; State: TGridDrawState);
@@ -253,11 +292,19 @@ begin
       DBGridClient.Columns[4].Width := 200;
 end;
 
-procedure TMainForm.StatusBarUpdate;
+procedure TMainForm.StatusBarUpdate; // Обновление статус бара
 begin
   if PageControl1.ActivePageIndex = 0 then
+  begin
     StatusBar1.Panels.Items[0].Text := 'Номер текущей записи: '+   IntToStr(DMl.ADOStoredProcGuestView.RecNo);
     StatusBar1.Panels.Items[1].Text := 'Количество записей: '+   IntToStr(DMl.ADOStoredProcGuestView.RecordCount);
+  end;
+  if PageControl1.ActivePageIndex = 0 then
+  begin
+    StatusBar1.Panels.Items[0].Text := 'Номер текущей записи: '+   IntToStr(DMl.ADOQueryGetClient.RecNo);
+    StatusBar1.Panels.Items[1].Text := 'Количество записей: '+   IntToStr(DMl.ADOQueryGetClient.RecordCount);
+  end;
+
 end;
 
 procedure TMainForm.ToolButton11Click(Sender: TObject);

@@ -149,6 +149,22 @@
             <Form>StatForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="EditClient.pas">
+            <Form>FormEditClient</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="OrderAdd.pas">
+            <Form>FormOrderAdd</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="EditProduct.pas">
+            <Form>FormEditProduct</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="EditOrder.pas">
+            <Form>FormEditOrder</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_DBApp\default.txaPackage"/>
         <None Include="Win32\Release\DB\Database.accdb"/>
         <BuildConfiguration Include="Release">

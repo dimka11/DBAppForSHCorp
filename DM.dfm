@@ -1,8 +1,8 @@
 object DMl: TDMl
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 406
-  Width = 863
+  Height = 648
+  Width = 965
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
@@ -111,6 +111,38 @@ object DMl: TDMl
     ProcedureName = 'GetEmployee'
     Parameters = <>
     Left = 208
+    Top = 264
+  end
+  object ADOQueryGetClient: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT ID, SecondName AS '#1060#1072#1084#1080#1083#1080#1103', FirstName AS '#1048#1084#1103', Phone AS '#1058#1077#1083 +
+        #1077#1092#1086#1085', Address AS '#1040#1076#1088#1077#1089
+      'FROM Client')
+    Left = 440
+    Top = 256
+  end
+  object DataSourceGetClient: TDataSource
+    DataSet = ADOQueryGetClient
+    Left = 464
+    Top = 328
+  end
+  object DataSourceGetOrder: TDataSource
+    DataSet = ADOStoredProcGetOrder
+    Left = 584
+    Top = 320
+  end
+  object ADOStoredProcGetOrder: TADOStoredProc
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    ProcedureName = 'OrdersView'
+    Parameters = <>
+    Left = 584
     Top = 264
   end
 end

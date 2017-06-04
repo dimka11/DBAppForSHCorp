@@ -44,8 +44,6 @@ object SubMainForm: TSubMainForm
       ActivePage = TabSheet1
       Align = alClient
       TabOrder = 0
-      ExplicitLeft = -3
-      ExplicitTop = -4
       object TabSheet1: TTabSheet
         Caption = #1057#1086#1090#1088#1091#1076#1085#1080#1082#1080
         object EmpLeftPanel: TPanel
@@ -78,8 +76,6 @@ object SubMainForm: TSubMainForm
           Height = 375
           Align = alRight
           TabOrder = 1
-          ExplicitLeft = 623
-          ExplicitTop = -1
         end
       end
       object TabSheet2: TTabSheet
@@ -92,8 +88,6 @@ object SubMainForm: TSubMainForm
           Height = 375
           Align = alRight
           TabOrder = 0
-          ExplicitLeft = 583
-          ExplicitTop = -1
           object Image1: TImage
             Left = 1
             Top = 1
@@ -12918,7 +12912,6 @@ object SubMainForm: TSubMainForm
           Align = alClient
           Caption = 'HouseLeftPanel'
           TabOrder = 1
-          ExplicitWidth = 629
           object DBGrid2: TDBGrid
             Left = 1
             Top = 1
@@ -12944,8 +12937,6 @@ object SubMainForm: TSubMainForm
     Height = 405
     Align = alRight
     TabOrder = 2
-    ExplicitLeft = 780
-    ExplicitTop = -6
     object Button1: TButton
       Left = 1
       Top = 1
@@ -12955,7 +12946,6 @@ object SubMainForm: TSubMainForm
       Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
       TabOrder = 0
       OnClick = Button1Click
-      ExplicitTop = 0
     end
     object Button2: TButton
       Left = 1
@@ -12966,8 +12956,6 @@ object SubMainForm: TSubMainForm
       Caption = #1059#1076#1072#1083#1080#1090#1100
       TabOrder = 1
       OnClick = Button2Click
-      ExplicitLeft = 5
-      ExplicitTop = 146
     end
     object Button3: TButton
       Left = 1
@@ -12978,7 +12966,7 @@ object SubMainForm: TSubMainForm
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       TabOrder = 2
       OnClick = Button3Click
-      ExplicitTop = 81
+      ExplicitTop = 35
     end
   end
 end

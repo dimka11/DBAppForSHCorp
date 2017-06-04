@@ -19,6 +19,10 @@ type
     ADOQueryStore: TADOQuery;
     DataSourceStore: TDataSource;
     ADOStoredProcGetEmp: TADOStoredProc;
+    ADOQueryGetClient: TADOQuery;
+    DataSourceGetClient: TDataSource;
+    DataSourceGetOrder: TDataSource;
+    ADOStoredProcGetOrder: TADOStoredProc;
     procedure DataModuleCreate(Sender: TObject);
     procedure DoConDB;
     procedure ActivateData;
@@ -49,6 +53,8 @@ begin
   ADOQuerySchedule.Active := True;
   ADOStoredProcGetEmp.Active := True;
   ADOQueryStore.Active := True;
+  ADOQueryGetClient.Active := True;
+  ADOStoredProcGetOrder.Active := True;
 end;
 
 procedure TDMl.DataModuleCreate(Sender: TObject);

@@ -19,7 +19,11 @@ uses
   Events in 'Events.pas' {FormEvents},
   Schedule in 'Schedule.pas' {FormSchedule},
   EditEmp in 'EditEmp.pas' {EditEmpForm},
-  Stat in 'Stat.pas' {StatForm};
+  Stat in 'Stat.pas' {StatForm},
+  EditClient in 'EditClient.pas' {FormEditClient},
+  OrderAdd in 'OrderAdd.pas' {FormOrderAdd},
+  EditProduct in 'EditProduct.pas' {FormEditProduct},
+  EditOrder in 'EditOrder.pas' {FormEditOrder};
 
 {ClientProgramsForm}
 
@@ -39,6 +43,10 @@ begin
   Application.CreateForm(TEditEmpForm, EditEmpForm);
   Application.CreateForm(TEditEmpForm, EditEmpForm);
   Application.CreateForm(TStatForm, StatForm);
+  Application.CreateForm(TFormEditClient, FormEditClient);
+  Application.CreateForm(TFormOrderAdd, FormOrderAdd);
+  Application.CreateForm(TFormEditProduct, FormEditProduct);
+  Application.CreateForm(TFormEditOrder, FormEditOrder);
   LoginForm.Visible := True;
   Application.CreateForm(TAboutForm, AboutForm);
   Application.CreateForm(TClientProgramsForm, ClientProgramsForm);

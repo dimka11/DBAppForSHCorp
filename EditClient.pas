@@ -4,10 +4,14 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.ToolWin,
+  Vcl.ComCtrls;
 
 type
-  TEditClientForm = class(TForm)
+  TFormEditClient = class(TForm)
+    DBNavigator1: TDBNavigator;
+    GridPanel1: TGridPanel;
+    ToolBar1: TToolBar;
   private
     { Private declarations }
   public
@@ -15,10 +19,12 @@ type
   end;
 
 var
-  EditClientForm: TEditClientForm;
+  FormEditClient: TFormEditClient;
 
 implementation
 
 {$R *.dfm}
+
+uses DM;
 
 end.

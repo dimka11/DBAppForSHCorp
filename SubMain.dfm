@@ -11,7 +11,9 @@ object SubMainForm: TSubMainForm
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
+  OnKeyPress = FormKeyPress
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -22,10 +24,10 @@ object SubMainForm: TSubMainForm
     Height = 19
     Panels = <
       item
-        Width = 50
+        Width = 200
       end
       item
-        Width = 50
+        Width = 200
       end>
   end
   object LeftPanel: TPanel
@@ -44,43 +46,47 @@ object SubMainForm: TSubMainForm
       ActivePage = TabSheet1
       Align = alClient
       TabOrder = 0
+      OnChange = PageControl1Change
       object TabSheet1: TTabSheet
         Caption = #1057#1086#1090#1088#1091#1076#1085#1080#1082#1080
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object EmpLeftPanel: TPanel
           Left = 0
           Top = 0
-          Width = 624
+          Width = 769
           Height = 375
           Align = alClient
           Caption = 'EmpLeftPanel'
           TabOrder = 0
-          object DBGrid1: TDBGrid
+          object DBGridEmpList: TDBGrid
             Left = 1
             Top = 1
-            Width = 622
+            Width = 767
             Height = 373
             Align = alClient
-            DataSource = DMl.DataSourceEmp
+            DataSource = DMl.DataSourceGetEmpList
+            ReadOnly = True
             TabOrder = 0
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
             TitleFont.Height = -11
             TitleFont.Name = 'Tahoma'
             TitleFont.Style = []
+            OnDrawDataCell = DBGridEmpListDrawDataCell
+            OnDrawColumnCell = DBGridEmpListDrawColumnCell
           end
-        end
-        object TPanel
-          Left = 624
-          Top = 0
-          Width = 145
-          Height = 375
-          Align = alRight
-          TabOrder = 1
         end
       end
       object TabSheet2: TTabSheet
         Caption = #1054#1092#1080#1089#1099
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object HouseRightPanel: TPanel
           Left = 584
           Top = 0
@@ -12912,7 +12918,7 @@ object SubMainForm: TSubMainForm
           Align = alClient
           Caption = 'HouseLeftPanel'
           TabOrder = 1
-          object DBGrid2: TDBGrid
+          object DBGridStores: TDBGrid
             Left = 1
             Top = 1
             Width = 582
@@ -12925,6 +12931,54 @@ object SubMainForm: TSubMainForm
             TitleFont.Height = -11
             TitleFont.Name = 'Tahoma'
             TitleFont.Style = []
+          end
+        end
+      end
+      object TabSheet3: TTabSheet
+        Caption = #1040#1082#1094#1080#1080
+        ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
+        object OffersPanel: TPanel
+          Left = 0
+          Top = 0
+          Width = 769
+          Height = 375
+          Align = alClient
+          Caption = 'OffersPanel'
+          TabOrder = 0
+          object LPanel: TPanel
+            Left = 583
+            Top = 1
+            Width = 185
+            Height = 373
+            Align = alRight
+            TabOrder = 0
+          end
+          object RPanel: TPanel
+            Left = 1
+            Top = 1
+            Width = 582
+            Height = 373
+            Align = alClient
+            Caption = 'RightPanel3'
+            TabOrder = 1
+            object DBGridOffers: TDBGrid
+              Left = 1
+              Top = 1
+              Width = 580
+              Height = 371
+              Align = alClient
+              DataSource = DMl.DataSourceGetPromo
+              TabOrder = 0
+              TitleFont.Charset = DEFAULT_CHARSET
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -11
+              TitleFont.Name = 'Tahoma'
+              TitleFont.Style = []
+            end
           end
         end
       end
@@ -12966,7 +13020,6 @@ object SubMainForm: TSubMainForm
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       TabOrder = 2
       OnClick = Button3Click
-      ExplicitTop = 35
     end
   end
 end

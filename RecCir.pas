@@ -45,17 +45,9 @@ type
     Panel6: TPanel;
     Panel7: TPanel;
     Panel8: TPanel;
-    Panel9: TPanel;
-    Panel10: TPanel;
-    Panel11: TPanel;
-    Panel12: TPanel;
-    Panel13: TPanel;
-    Panel14: TPanel;
-    Panel15: TPanel;
-    Panel16: TPanel;
-    Panel17: TPanel;
-    Panel18: TPanel;
+    BotPanel: TPanel;
     procedure FormShow(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -68,6 +60,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFormRecCir.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+if (Key = #27) then
+  Close;
+end;
 
 procedure TFormRecCir.FormShow(Sender: TObject);
 var

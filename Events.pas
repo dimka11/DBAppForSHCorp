@@ -10,17 +10,16 @@ uses
 type
   TFormEvents = class(TForm)
     GridPanel1: TGridPanel;
-    Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBCheckBox1: TDBCheckBox;
     DBMemo1: TDBMemo;
     DBDateTimePicker1: TDBDateTimePicker;
     DBNavigator1: TDBNavigator;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -35,5 +34,11 @@ implementation
 {$R *.dfm}
 
 uses DM;
+
+procedure TFormEvents.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+if (Key = #27) then
+  Close;
+end;
 
 end.

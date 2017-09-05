@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Grids, Excel2010, comObj;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Grids, Excel2010, comObj,
+  Vcl.StdCtrls;
 
 type
   TClientProgramsForm = class(TForm)
@@ -13,6 +14,7 @@ type
     BotPanel: TPanel;
     StatusBar1: TStatusBar;
     TabControl1: TTabControl;
+    Button1: TButton;
     procedure FormShow(Sender: TObject);
     procedure StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
@@ -20,6 +22,9 @@ type
     procedure FillStringGrid;
     procedure TabControl1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -35,7 +40,14 @@ implementation
 
 {$R *.dfm}
 
+uses RecCir;
 
+
+
+procedure TClientProgramsForm.Button1Click(Sender: TObject);
+begin
+   FormRecCir.ShowModal;
+end;
 
 procedure TClientProgramsForm.FillStringGrid;
 var
@@ -45,14 +57,14 @@ begin
     //for i := 0 to Excel.Sheets[TabControl1.TabIndex +1].UsedRange.Columns.Count  do
       //StringGrid1.ColWidths[i -1] := 200;   // НЕРАБОЧИЙ КОД
       try
-        StringGrid1.ColWidths[0] := 200;
-        StringGrid1.ColWidths[1] := 200;
-        StringGrid1.ColWidths[2] := 200;
-        StringGrid1.ColWidths[3] := 200;
-        StringGrid1.ColWidths[4] := 200;
-        StringGrid1.ColWidths[5] := 200;
-        StringGrid1.ColWidths[6] := 200;
-        StringGrid1.ColWidths[7] := 300;
+        StringGrid1.ColWidths[0] := 400;
+        StringGrid1.ColWidths[1] := 400;
+        StringGrid1.ColWidths[2] := 400;
+        StringGrid1.ColWidths[3] := 400;
+        StringGrid1.ColWidths[4] := 400;
+        StringGrid1.ColWidths[5] := 400;
+        StringGrid1.ColWidths[6] := 400;
+        StringGrid1.ColWidths[7] := 400;
         StringGrid1.ColWidths[8] := 5;
       except
 
@@ -72,6 +84,30 @@ procedure TClientProgramsForm.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
     Excel.Workbooks.Close;
+end;
+
+procedure TClientProgramsForm.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+if (Key = #27) then
+  Close;
+end;
+
+procedure TClientProgramsForm.FormPaint(Sender: TObject);
+begin
+    try
+        StringGrid1.ColWidths[0] := 400;
+        StringGrid1.ColWidths[1] := 400;
+        StringGrid1.ColWidths[2] := 400;
+        StringGrid1.ColWidths[3] := 400;
+        StringGrid1.ColWidths[4] := 400;
+        StringGrid1.ColWidths[5] := 400;
+        StringGrid1.ColWidths[6] := 400;
+        StringGrid1.ColWidths[7] := 400;
+        StringGrid1.ColWidths[8] := 5;
+      except
+
+
+    end;
 end;
 
 procedure TClientProgramsForm.FormShow(Sender: TObject);
@@ -110,13 +146,13 @@ begin
   end
   else //Если же ячейка теряет фокус, то закрашиваем её красным и зелёным
     if ACol = 0 then
-      StringGrid1.Canvas.Brush.color := clPaleGreen
+      StringGrid1.Canvas.Brush.color := clWebLightBlue
       else if Acol = 1 then
-        StringGrid1.canvas.brush.Color := clWebLightBlue
-      else if Acol = 2 then
         StringGrid1.canvas.brush.Color := clWebLightYellow
+      else if Acol = 2 then
+        StringGrid1.canvas.brush.Color := clWebLightBlue
       else if Acol = 3  then
-        StringGrid1.canvas.brush.Color := clWebLightGreen
+        StringGrid1.canvas.brush.Color := clWebLightYellow
     else
       StringGrid1.canvas.brush.Color := clWebLightBlue;
           if ARow = 0 then

@@ -4,22 +4,25 @@ object FormSchedule: TFormSchedule
   BorderIcons = [biSystemMenu, biMaximize]
   Caption = #1056#1072#1089#1087#1080#1089#1072#1085#1080#1077
   ClientHeight = 513
-  ClientWidth = 899
+  ClientWidth = 864
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object DBNavigator1: TDBNavigator
     Left = 0
     Top = 488
-    Width = 899
+    Width = 864
     Height = 25
     DataSource = DMl.DataSourceSchedule
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
     Align = alBottom
     Hints.Strings = (
       #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1087#1077#1088#1074#1086#1081' '#1079#1072#1087#1080#1089#1080
@@ -37,22 +40,19 @@ object FormSchedule: TFormSchedule
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
-    ExplicitLeft = 240
-    ExplicitTop = 136
-    ExplicitWidth = 240
   end
   object GridPanel1: TGridPanel
     Left = 0
     Top = 0
-    Width = 899
+    Width = 864
     Height = 488
     Align = alClient
     ColumnCollection = <
       item
-        Value = 49.871497627327270000
+        Value = 21.862481103442010000
       end
       item
-        Value = 50.128502372672730000
+        Value = 78.137518896557990000
       end>
     ControlCollection = <
       item
@@ -148,18 +148,16 @@ object FormSchedule: TFormSchedule
         Value = 14.291748377589960000
       end>
     TabOrder = 1
-    ExplicitTop = -6
-    ExplicitWidth = 918
     DesignSize = (
-      899
+      864
       488)
     object Label1: TLabel
       AlignWithMargins = True
-      Left = 51
+      Left = 16
       Top = 4
       Width = 97
       Height = 63
-      Margins.Left = 50
+      Margins.Left = 15
       Align = alLeft
       Caption = #1055#1086#1085#1077#1076#1077#1083#1100#1085#1080#1082
       Font.Charset = DEFAULT_CHARSET
@@ -171,23 +169,22 @@ object FormSchedule: TFormSchedule
       ExplicitHeight = 19
     end
     object DBMemo1: TDBMemo
-      Left = 523
+      Left = 230
       Top = 8
-      Width = 300
+      Width = 592
       Height = 55
       Anchors = []
       DataField = #1055#1086#1085#1077#1076#1077#1083#1100#1085#1080#1082
       DataSource = DMl.DataSourceSchedule
       TabOrder = 0
-      ExplicitLeft = 533
     end
     object Label2: TLabel
       AlignWithMargins = True
-      Left = 51
+      Left = 16
       Top = 73
       Width = 61
       Height = 63
-      Margins.Left = 50
+      Margins.Left = 15
       Align = alLeft
       Caption = #1042#1090#1086#1088#1085#1080#1082
       Font.Charset = DEFAULT_CHARSET
@@ -199,23 +196,22 @@ object FormSchedule: TFormSchedule
       ExplicitHeight = 19
     end
     object DBMemo2: TDBMemo
-      Left = 523
+      Left = 229
       Top = 77
-      Width = 300
+      Width = 593
       Height = 55
       Anchors = []
       DataField = #1042#1090#1086#1088#1085#1080#1082
       DataSource = DMl.DataSourceSchedule
       TabOrder = 1
-      ExplicitLeft = 533
     end
     object Label3: TLabel
       AlignWithMargins = True
-      Left = 51
+      Left = 16
       Top = 142
       Width = 44
       Height = 63
-      Margins.Left = 50
+      Margins.Left = 15
       Align = alLeft
       Caption = #1057#1088#1077#1076#1072
       Font.Charset = DEFAULT_CHARSET
@@ -227,23 +223,22 @@ object FormSchedule: TFormSchedule
       ExplicitHeight = 19
     end
     object DBMemo3: TDBMemo
-      Left = 523
+      Left = 228
       Top = 146
-      Width = 300
+      Width = 596
       Height = 55
       Anchors = []
       DataField = #1057#1088#1077#1076#1072
       DataSource = DMl.DataSourceSchedule
       TabOrder = 2
-      ExplicitLeft = 533
     end
     object Label4: TLabel
       AlignWithMargins = True
-      Left = 51
+      Left = 16
       Top = 211
       Width = 58
       Height = 63
-      Margins.Left = 50
+      Margins.Left = 15
       Align = alLeft
       Caption = #1063#1077#1090#1074#1077#1088#1075
       Font.Charset = DEFAULT_CHARSET
@@ -255,23 +250,22 @@ object FormSchedule: TFormSchedule
       ExplicitHeight = 19
     end
     object DBMemo4: TDBMemo
-      Left = 523
+      Left = 228
       Top = 215
-      Width = 300
+      Width = 596
       Height = 55
       Anchors = []
       DataField = #1063#1077#1090#1074#1077#1088#1075
       DataSource = DMl.DataSourceSchedule
       TabOrder = 3
-      ExplicitLeft = 533
     end
     object Label5: TLabel
       AlignWithMargins = True
-      Left = 51
+      Left = 16
       Top = 280
       Width = 62
       Height = 63
-      Margins.Left = 50
+      Margins.Left = 15
       Align = alLeft
       Caption = #1055#1103#1090#1085#1080#1094#1072
       Font.Charset = DEFAULT_CHARSET
@@ -283,23 +277,22 @@ object FormSchedule: TFormSchedule
       ExplicitHeight = 19
     end
     object DBMemo5: TDBMemo
-      Left = 523
+      Left = 230
       Top = 284
-      Width = 300
+      Width = 592
       Height = 55
       Anchors = []
       DataField = #1055#1103#1090#1085#1080#1082#1072
       DataSource = DMl.DataSourceSchedule
       TabOrder = 4
-      ExplicitLeft = 533
     end
     object Label6: TLabel
       AlignWithMargins = True
-      Left = 51
+      Left = 16
       Top = 349
       Width = 61
       Height = 63
-      Margins.Left = 50
+      Margins.Left = 15
       Align = alLeft
       Caption = #1057#1091#1073#1073#1086#1090#1072
       Font.Charset = DEFAULT_CHARSET
@@ -311,23 +304,22 @@ object FormSchedule: TFormSchedule
       ExplicitHeight = 19
     end
     object DBMemo6: TDBMemo
-      Left = 523
+      Left = 229
       Top = 353
-      Width = 300
+      Width = 593
       Height = 55
       Anchors = []
       DataField = #1057#1091#1073#1073#1086#1090#1072
       DataSource = DMl.DataSourceSchedule
       TabOrder = 5
-      ExplicitLeft = 533
     end
     object Label7: TLabel
       AlignWithMargins = True
-      Left = 51
+      Left = 16
       Top = 418
       Width = 90
       Height = 66
-      Margins.Left = 50
+      Margins.Left = 15
       Align = alLeft
       Caption = #1042#1086#1089#1082#1088#1077#1089#1077#1085#1100#1077
       Font.Charset = DEFAULT_CHARSET
@@ -339,15 +331,14 @@ object FormSchedule: TFormSchedule
       ExplicitHeight = 19
     end
     object DBMemo7: TDBMemo
-      Left = 523
+      Left = 228
       Top = 423
-      Width = 300
+      Width = 596
       Height = 55
       Anchors = []
       DataField = #1042#1086#1089#1082#1088#1077#1089#1077#1085#1100#1077
       DataSource = DMl.DataSourceSchedule
       TabOrder = 6
-      ExplicitLeft = 533
     end
   end
 end

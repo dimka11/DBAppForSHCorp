@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB,
-  Data.Win.ADODB, Vcl.Imaging.pngimage, Vcl.ComCtrls;
+  Data.Win.ADODB, Vcl.Imaging.pngimage, Vcl.ComCtrls, Vcl.DBCtrls,System.JSON, REST.JSON;
 
 type
   TLoginForm = class(TForm)
@@ -41,6 +41,8 @@ type
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
+    procedure ErrorMessage(Message: String);
+    function CheckSettingsFile( number: Integer): Integer;
   private
     { Private declarations }
   public
@@ -67,7 +69,7 @@ begin
   ADOQuery1.Active := True;
   if ADOQuery1.RecordCount > 0 then
   begin
-    ShowMessage('Вход выполнен');
+    ShowMessage('Вход в приложение был выполнен');
     // Открытие форм
 
     if ADOQuery1.FieldByName('Type').AsInteger = 0 then
@@ -125,19 +127,50 @@ begin
   GuestForm.ShowModal;
 end;
 
-procedure TLoginForm.ComboBox1Change(Sender: TObject);  // Подстановка пароля
+function TLoginForm.CheckSettingsFile(number: Integer): Integer;
+var
+  FilePath: string;
+  JSONObject: TJSONObject;
+  s: TStringList;
 begin
-  if ComboBox1.Text = 'Администратор' then
-    Edit1.Text := 'qweqwe' else
-  Edit1.Text := '1';
+try
+begin
+  FilePath := 'Docs/Settings.ini';
+  s :=  TStringList.Create;
+  s.LoadFromFile(FilePath);
+  if s[0].ToBoolean = True then
+    Result := 1 else Result := 0;
+end;
+except
 
 end;
+end;
+
+procedure TLoginForm.ComboBox1Change(Sender: TObject);  // Подстановка пароля
+begin
+  if CheckSettingsFile(0) = 1 then
+  begin
+    if ComboBox1.Text = 'Администратор' then
+      Edit1.Text := 'qweqwe' else
+      Edit1.Text := '1';
+  end;
+
+end;
+
+
 
 procedure TLoginForm.CreateParams(var Params: TCreateParams);
 begin
   inherited CreateParams(Params);;
   Params.ExStyle   := Params.ExStyle or WS_EX_APPWINDOW;
   Params.WndParent := GetDesktopWindow;
+end;
+
+
+
+procedure TLoginForm.ErrorMessage(Message: String);
+begin
+  ShowMessage(Message);
 end;
 
 procedure TLoginForm.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -162,13 +195,8 @@ procedure TLoginForm.FormShow(Sender: TObject);
 var
   i: Integer;
 begin
-  // ПРЯМОЕ ОТКРЫТИЕ ФОРМ
-  //ClientProgramsForm.Show;
-  DMl.DoConDB;
-  DMl.ActivateData;
-  if DMl.ADOConnection1.Connected = False then
-    ShowMessage('Не удалось подключиться к БД');
-  DMl.ADOStoredProcLogin.Active := True;
+  if CheckSettingsFile(0) = 0 then
+    Edit1.Text := '';
 
   ComboBox1.Clear;
   DMl.ADOStoredProcLogin.First;
@@ -177,6 +205,7 @@ begin
     ComboBox1.Items.Add(Dml.ADOStoredProcLogin.FieldByName('Login').AsString);
     Dml.ADOStoredProcLogin.Next;
   end;
+
 end;
 
 function TLoginForm.LoadRTFFromFile: Boolean; // Загрузка соглашений
@@ -192,6 +221,10 @@ except
   ShowMessage('Ошибка при загрузке документов');
   Result := False;
 end;
+
+
+
+ 
 end;
 
 end.

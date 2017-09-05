@@ -2,34 +2,36 @@
   Left = 0
   Top = 0
   Caption = #1060#1086#1088#1084#1072' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1103' '#1082#1083#1080#1077#1085#1090#1072
-  ClientHeight = 296
-  ClientWidth = 527
+  ClientHeight = 467
+  ClientWidth = 408
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object DBNavigator1: TDBNavigator
     Left = 0
-    Top = 271
-    Width = 527
+    Top = 442
+    Width = 408
     Height = 25
     DataSource = DMl.DataSourceGetClient
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbEdit]
     Align = alBottom
     TabOrder = 0
-    ExplicitLeft = 304
-    ExplicitTop = 200
-    ExplicitWidth = 240
   end
   object GridPanel1: TGridPanel
     Left = 0
     Top = 29
-    Width = 527
-    Height = 242
+    Width = 408
+    Height = 413
     Align = alClient
     ColumnCollection = <
       item
@@ -78,31 +80,55 @@
         Column = 1
         Control = DBRichEdit1
         Row = 3
+      end
+      item
+        Column = 0
+        Control = Label4
+        Row = 4
+      end
+      item
+        Column = 1
+        Control = DBDateTimePicker1
+        Row = 4
+      end
+      item
+        Column = 0
+        Control = Label5
+        Row = 5
+      end
+      item
+        Column = 1
+        Control = DBLookupComboBox1
+        Row = 5
       end>
     RowCollection = <
       item
-        Value = 25.073984088475470000
+        Value = 16.714384359204800000
       end
       item
-        Value = 24.946202914634110000
+        Value = 16.695233616994560000
       end
       item
-        Value = 24.967019732984120000
+        Value = 16.676171196554190000
       end
       item
-        Value = 25.012793263906300000
+        Value = 16.657121930128680000
+      end
+      item
+        Value = 16.638067797699350000
+      end
+      item
+        Value = 16.619021099418410000
       end>
     TabOrder = 1
-    ExplicitTop = 23
-    DesignSize = (
-      527
-      242)
     object Label1: TLabel
-      Left = 105
-      Top = 23
+      AlignWithMargins = True
+      Left = 11
+      Top = 4
       Width = 53
-      Height = 16
-      Anchors = []
+      Height = 62
+      Margins.Left = 10
+      Align = alLeft
       Caption = #1060#1072#1084#1080#1083#1080#1103
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -110,26 +136,29 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 110
-      ExplicitTop = 24
+      ExplicitHeight = 16
     end
     object DBEdit1: TDBEdit
-      Left = 334
-      Top = 20
-      Width = 121
+      AlignWithMargins = True
+      Left = 219
+      Top = 4
+      Width = 168
       Height = 21
-      Anchors = []
+      Margins.Left = 15
       DataField = #1060#1072#1084#1080#1083#1080#1103
       DataSource = DMl.DataSourceGetClient
       TabOrder = 0
-      ExplicitTop = 22
+      OnChange = DBEdit1Change
+      OnKeyPress = DBEdit1KeyPress
     end
     object Label2: TLabel
-      Left = 120
-      Top = 82
+      AlignWithMargins = True
+      Left = 11
+      Top = 72
       Width = 23
-      Height = 16
-      Anchors = []
+      Height = 62
+      Margins.Left = 10
+      Align = alLeft
       Caption = #1048#1084#1103
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -137,26 +166,29 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 122
-      ExplicitTop = 84
+      ExplicitHeight = 16
     end
     object DBEdit2: TDBEdit
-      Left = 334
-      Top = 80
-      Width = 121
+      AlignWithMargins = True
+      Left = 219
+      Top = 72
+      Width = 168
       Height = 21
-      Anchors = []
+      Margins.Left = 15
       DataField = #1048#1084#1103
       DataSource = DMl.DataSourceGetClient
       TabOrder = 1
-      ExplicitLeft = 352
+      OnChange = DBEdit2Change
+      OnKeyPress = DBEdit2KeyPress
     end
     object Label3: TLabel
-      Left = 105
-      Top = 141
+      AlignWithMargins = True
+      Left = 11
+      Top = 140
       Width = 53
-      Height = 16
-      Anchors = []
+      Height = 62
+      Margins.Left = 10
+      Align = alLeft
       Caption = #1058#1077#1083#1077#1092#1086#1085
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -164,27 +196,28 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 110
-      ExplicitTop = 143
+      ExplicitHeight = 16
     end
     object DBEdit3: TDBEdit
-      Left = 334
-      Top = 139
-      Width = 121
+      AlignWithMargins = True
+      Left = 219
+      Top = 140
+      Width = 168
       Height = 21
-      Anchors = []
+      Margins.Left = 15
       DataField = #1058#1077#1083#1077#1092#1086#1085
       DataSource = DMl.DataSourceGetClient
       TabOrder = 2
-      ExplicitLeft = 352
-      ExplicitTop = 144
+      OnKeyPress = DBEdit3KeyPress
     end
     object Адрес: TLabel
-      Left = 114
-      Top = 202
+      AlignWithMargins = True
+      Left = 11
+      Top = 208
       Width = 35
-      Height = 16
-      Anchors = []
+      Height = 62
+      Margins.Left = 10
+      Align = alLeft
       Caption = #1040#1076#1088#1077#1089
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -192,15 +225,15 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 116
-      ExplicitTop = 203
+      ExplicitHeight = 16
     end
     object DBRichEdit1: TDBRichEdit
-      Left = 302
-      Top = 190
-      Width = 185
+      AlignWithMargins = True
+      Left = 219
+      Top = 208
+      Width = 168
       Height = 39
-      Anchors = []
+      Margins.Left = 15
       DataField = #1040#1076#1088#1077#1089
       DataSource = DMl.DataSourceGetClient
       Font.Charset = RUSSIAN_CHARSET
@@ -210,13 +243,63 @@
       Font.Style = []
       TabOrder = 3
       Zoom = 100
-      ExplicitTop = 197
+    end
+    object Label4: TLabel
+      AlignWithMargins = True
+      Left = 11
+      Top = 276
+      Width = 80
+      Height = 62
+      Margins.Left = 10
+      Align = alLeft
+      Caption = #1044#1072#1090#1072' '#1088#1086#1078#1076#1077#1085#1080#1103
+      ExplicitHeight = 13
+    end
+    object DBDateTimePicker1: TDBDateTimePicker
+      AlignWithMargins = True
+      Left = 219
+      Top = 276
+      Width = 168
+      Height = 21
+      Margins.Left = 15
+      Date = 42897.000000000000000000
+      Time = 42897.000000000000000000
+      TabOrder = 4
+      DataField = #1044#1077#1085#1100' '#1088#1086#1078#1076#1077#1085#1080#1103
+      DataSource = DMl.DataSourceGetClient
+    end
+    object Label5: TLabel
+      AlignWithMargins = True
+      Left = 11
+      Top = 351
+      Width = 56
+      Height = 58
+      Margins.Left = 10
+      Margins.Top = 10
+      Align = alLeft
+      Caption = #1057#1086#1090#1088#1091#1076#1085#1080#1082
+      ExplicitHeight = 13
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      AlignWithMargins = True
+      Left = 214
+      Top = 351
+      Width = 145
+      Height = 21
+      Margins.Left = 10
+      Margins.Top = 10
+      DataField = 'EmployeeID'
+      DataSource = DMl.DataSourceGetClient
+      KeyField = 'ID'
+      ListField = 'SecondName'
+      ListSource = DataSource1
+      TabOrder = 5
     end
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 527
+    Width = 408
     Height = 29
     ButtonHeight = 21
     ButtonWidth = 102
@@ -245,5 +328,18 @@
       ImageIndex = 1
       OnClick = ToolButton3Click
     end
+  end
+  object ADODataSet1: TADODataSet
+    Connection = DMl.ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'SELECT ID, SecondName'#13#10'FROM Employee'
+    Parameters = <>
+    Left = 248
+    Top = 16
+  end
+  object DataSource1: TDataSource
+    DataSet = ADODataSet1
+    Left = 312
+    Top = 8
   end
 end

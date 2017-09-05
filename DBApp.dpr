@@ -23,7 +23,12 @@ uses
   EditClient in 'EditClient.pas' {FormEditClient},
   OrderAdd in 'OrderAdd.pas' {FormOrderAdd},
   EditProduct in 'EditProduct.pas' {FormEditProduct},
-  EditOrder in 'EditOrder.pas' {FormEditOrder};
+  EditOrder in 'EditOrder.pas' {FormEditOrder},
+  Vcl.Themes,
+  Vcl.Styles,
+  Notes in 'Notes.pas' {FormNotes},
+  EditStore in 'EditStore.pas' {FormEditStore},
+  EditPromo in 'EditPromo.pas' {FormEditPromotion};
 
 {ClientProgramsForm}
 
@@ -47,6 +52,9 @@ begin
   Application.CreateForm(TFormOrderAdd, FormOrderAdd);
   Application.CreateForm(TFormEditProduct, FormEditProduct);
   Application.CreateForm(TFormEditOrder, FormEditOrder);
+  Application.CreateForm(TFormNotes, FormNotes);
+  Application.CreateForm(TFormEditStore, FormEditStore);
+  Application.CreateForm(TFormEditPromotion, FormEditPromotion);
   LoginForm.Visible := True;
   Application.CreateForm(TAboutForm, AboutForm);
   Application.CreateForm(TClientProgramsForm, ClientProgramsForm);

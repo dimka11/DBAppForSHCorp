@@ -2,7 +2,7 @@ object GuestForm: TGuestForm
   Left = 244
   Top = 165
   Caption = #1055#1088#1086#1076#1091#1082#1094#1080#1103' '#1082#1086#1084#1087#1072#1085#1080#1080#1080
-  ClientHeight = 430
+  ClientHeight = 412
   ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,6 +13,7 @@ object GuestForm: TGuestForm
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesigned
+  ShowHint = True
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -24,7 +25,7 @@ object GuestForm: TGuestForm
     Left = 0
     Top = 225
     Width = 969
-    Height = 186
+    Height = 168
     Align = alClient
     DataSource = DMl.DataSourceGuestView
     Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -41,7 +42,7 @@ object GuestForm: TGuestForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 411
+    Top = 393
     Width = 969
     Height = 19
     Panels = <
@@ -51,7 +52,6 @@ object GuestForm: TGuestForm
       item
         Width = 200
       end>
-    ExplicitTop = 300
   end
   object Panel1: TPanel
     Left = 0
@@ -155,6 +155,20 @@ object GuestForm: TGuestForm
         Width = 30
         Height = 13
         Caption = #1055#1086#1080#1089#1082
+      end
+      object Label2: TLabel
+        Left = 6
+        Top = 178
+        Width = 66
+        Height = 13
+        Caption = #1055#1086' '#1085#1072#1079#1074#1072#1085#1080#1102
+      end
+      object Label3: TLabel
+        Left = 150
+        Top = 176
+        Width = 69
+        Height = 13
+        Caption = #1055#1086' '#1082#1072#1090#1077#1075#1086#1088#1080#1080
       end
       object EditFilter: TEdit
         Left = 6
@@ -294,9 +308,21 @@ object GuestForm: TGuestForm
       end
     end
   end
+  object ComboBox1: TComboBox
+    Left = 234
+    Top = 8
+    Width = 145
+    Height = 21
+    Hint = #1057#1084#1077#1085#1072' '#1089#1090#1080#1083#1103
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    TextHint = #1057#1084#1077#1085#1072' '#1089#1090#1080#1083#1103
+    OnChange = ComboBox1Change
+  end
   object MainMenu1: TMainMenu
-    Left = 216
-    Top = 96
+    Left = 192
+    Top = 112
     object ExitMenuItem: TMenuItem
       Caption = #1042#1099#1093#1086#1076
       OnClick = MenuItemClick

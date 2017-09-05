@@ -4,128 +4,93 @@ object FormEvents: TFormEvents
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = #1057#1086#1073#1099#1090#1080#1103' '#1082#1086#1084#1087#1072#1085#1080#1080
   ClientHeight = 412
-  ClientWidth = 689
+  ClientWidth = 472
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  Padding.Left = 10
+  KeyPreview = True
   Padding.Right = 10
   OldCreateOrder = False
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object GridPanel1: TGridPanel
-    Left = 10
+    Left = 0
     Top = 0
-    Width = 669
+    Width = 462
     Height = 387
     Align = alClient
     ColumnCollection = <
       item
-        Value = 50.002001355532680000
+        Value = 27.291765642450240000
       end
       item
-        Value = 49.997998644467320000
+        Value = 72.708234357549760000
       end>
     ControlCollection = <
       item
         Column = 0
-        Control = Label1
-        Row = 0
-      end
-      item
-        Column = 0
         Control = Label2
-        Row = 1
+        Row = 0
       end
       item
         Column = 0
         Control = Label3
-        Row = 2
+        Row = 1
       end
       item
         Column = 0
         Control = Label4
-        Row = 3
+        Row = 2
       end
       item
         Column = 0
         Control = Label5
-        Row = 4
-      end
-      item
-        Column = 1
-        Control = DBEdit1
-        Row = 0
-      end
-      item
-        Column = 1
-        Control = DBEdit2
-        Row = 1
-      end
-      item
-        Column = 1
-        Control = DBCheckBox1
         Row = 3
       end
       item
         Column = 1
+        Control = DBEdit2
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = DBCheckBox1
+        Row = 2
+      end
+      item
+        Column = 1
         Control = DBMemo1
-        Row = 4
+        Row = 3
       end
       item
         Column = 1
         Control = DBDateTimePicker1
-        Row = 2
+        Row = 1
       end>
     RowCollection = <
       item
-        Value = 19.999209010234590000
+        Value = 24.998620932278100000
       end
       item
-        Value = 19.999094482355550000
+        Value = 25.000449460543500000
       end
       item
-        Value = 20.000557319431340000
+        Value = 25.000824229862360000
       end
       item
-        Value = 20.000857137850820000
-      end
-      item
-        Value = 20.000282050127700000
+        Value = 25.000105377316030000
       end>
     TabOrder = 0
-    DesignSize = (
-      669
-      387)
-    object Label1: TLabel
-      AlignWithMargins = True
-      Left = 11
-      Top = 4
-      Width = 320
-      Height = 70
-      Margins.Left = 10
-      Align = alClient
-      Caption = 'ID'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 17
-      ExplicitHeight = 19
-    end
     object Label2: TLabel
       AlignWithMargins = True
       Left = 11
-      Top = 80
-      Width = 320
-      Height = 70
+      Top = 4
+      Width = 112
+      Height = 90
       Margins.Left = 10
       Align = alClient
       Caption = #1053#1072#1079#1074#1072#1085#1080#1077
@@ -135,17 +100,15 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 1
-      ExplicitTop = 77
       ExplicitWidth = 68
       ExplicitHeight = 19
     end
     object Label3: TLabel
       AlignWithMargins = True
       Left = 11
-      Top = 156
-      Width = 320
-      Height = 71
+      Top = 100
+      Width = 112
+      Height = 90
       Margins.Left = 10
       Align = alClient
       Caption = #1044#1072#1090#1072
@@ -155,17 +118,15 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 1
-      ExplicitTop = 153
       ExplicitWidth = 35
       ExplicitHeight = 19
     end
     object Label4: TLabel
       AlignWithMargins = True
       Left = 11
-      Top = 233
-      Width = 320
-      Height = 71
+      Top = 196
+      Width = 112
+      Height = 90
       Margins.Left = 10
       Align = alClient
       Caption = #1055#1088#1080#1086#1088#1080#1090#1077#1090
@@ -175,17 +136,15 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 1
-      ExplicitTop = 230
       ExplicitWidth = 80
       ExplicitHeight = 19
     end
     object Label5: TLabel
       AlignWithMargins = True
       Left = 11
-      Top = 310
-      Width = 320
-      Height = 73
+      Top = 292
+      Width = 112
+      Height = 91
       Margins.Left = 10
       Align = alClient
       Caption = #1054#1087#1080#1089#1072#1085#1080#1077
@@ -195,75 +154,65 @@ object FormEvents: TFormEvents
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 1
-      ExplicitTop = 307
       ExplicitWidth = 71
       ExplicitHeight = 19
     end
-    object DBEdit1: TDBEdit
-      Left = 391
-      Top = 28
-      Width = 220
-      Height = 21
-      Anchors = []
-      DataField = 'ID'
-      DataSource = DMl.DataSourceEvents
-      ReadOnly = True
-      TabOrder = 0
-      ExplicitLeft = 400
-    end
     object DBEdit2: TDBEdit
-      Left = 391
-      Top = 104
+      AlignWithMargins = True
+      Left = 141
+      Top = 11
       Width = 220
       Height = 21
-      Anchors = []
+      Margins.Left = 15
+      Margins.Top = 10
       DataField = 'Title'
       DataSource = DMl.DataSourceEvents
-      TabOrder = 1
-      ExplicitLeft = 396
+      TabOrder = 0
     end
     object DBCheckBox1: TDBCheckBox
-      Left = 391
-      Top = 260
+      AlignWithMargins = True
+      Left = 141
+      Top = 196
       Width = 220
-      Height = 17
-      Anchors = []
+      Height = 90
+      Margins.Left = 15
+      Align = alLeft
       Caption = #1042#1099#1089#1086#1082#1080#1081
       DataField = 'Priority'
       DataSource = DMl.DataSourceEvents
-      TabOrder = 2
-      ExplicitLeft = 452
+      TabOrder = 1
     end
     object DBMemo1: TDBMemo
-      Left = 391
-      Top = 323
+      AlignWithMargins = True
+      Left = 141
+      Top = 299
       Width = 220
       Height = 46
-      Anchors = []
+      Margins.Left = 15
+      Margins.Top = 10
       DataField = 'Desc'
       DataSource = DMl.DataSourceEvents
-      TabOrder = 3
-      ExplicitLeft = 491
+      TabOrder = 2
     end
     object DBDateTimePicker1: TDBDateTimePicker
-      Left = 391
-      Top = 181
+      AlignWithMargins = True
+      Left = 141
+      Top = 107
       Width = 220
       Height = 21
-      Anchors = []
+      Margins.Left = 15
+      Margins.Top = 10
       Date = 42896.000000000000000000
       Time = 42896.000000000000000000
-      TabOrder = 4
+      TabOrder = 3
       DataField = 'Date'
       DataSource = DMl.DataSourceEvents
-      ExplicitLeft = 392
     end
   end
   object DBNavigator1: TDBNavigator
-    Left = 10
+    Left = 0
     Top = 387
-    Width = 669
+    Width = 462
     Height = 25
     DataSource = DMl.DataSourceEvents
     Align = alBottom

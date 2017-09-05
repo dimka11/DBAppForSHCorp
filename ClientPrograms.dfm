@@ -10,8 +10,11 @@ object ClientProgramsForm: TClientProgramsForm
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   OnClose = FormClose
+  OnKeyPress = FormKeyPress
+  OnPaint = FormPaint
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -22,6 +25,16 @@ object ClientProgramsForm: TClientProgramsForm
     Height = 41
     Align = alTop
     TabOrder = 0
+    object Button1: TButton
+      Left = 1
+      Top = 1
+      Width = 112
+      Height = 39
+      Align = alLeft
+      Caption = #1057#1093#1077#1084#1072' '#1087#1088#1080#1077#1084#1072' '#1041#1040#1044
+      TabOrder = 0
+      OnClick = Button1Click
+    end
   end
   object BotPanel: TPanel
     Left = 0
@@ -46,8 +59,7 @@ object ClientProgramsForm: TClientProgramsForm
         '5'
         '6'
         '7'
-        '8'
-        '9')
+        '8')
       TabIndex = 0
       OnChange = TabControl1Change
       object StringGrid1: TStringGrid

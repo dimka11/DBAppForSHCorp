@@ -1,0 +1,95 @@
+object TStyleContainer
+  object TRectangle
+    StyleName = 'Panel5Style1'
+    Align = Center
+    Fill.Color = xFF2D6336
+    HitTest = False
+    Size.Width = 220.834243774414000000
+    Size.Height = 34.734455108642580000
+    Size.PlatformDefault = False
+    Stroke.Color = xFFCCCCCC
+    Visible = False
+  end
+  object TRectangle
+    StyleName = 'Panel6Style1'
+    Align = Center
+    Fill.Color = xFFD9EBF3
+    HitTest = False
+    Size.Width = 222.446762084960900000
+    Size.Height = 34.734455108642580000
+    Size.PlatformDefault = False
+    Stroke.Color = xFFCCCCCC
+    Visible = False
+  end
+  object TRectangle
+    StyleName = 'Panelstyle'
+    Align = Center
+    Fill.Color = xFFF0F0F0
+    HitTest = False
+    Size.Width = 222.446762084960900000
+    Size.Height = 34.734455108642580000
+    Size.PlatformDefault = False
+    Stroke.Color = xFFCCCCCC
+    Visible = False
+  end
+  object TRectangle
+    StyleName = 'Panel7Style1'
+    Align = Center
+    Fill.Color = xFFFBFBD2
+    HitTest = False
+    Size.Width = 224.462463378906200000
+    Size.Height = 34.734455108642580000
+    Size.PlatformDefault = False
+    Stroke.Color = xFFCCCCCC
+    Visible = False
+  end
+  object TRectangle
+    StyleName = 'Panel8Style1'
+    Align = Center
+    Fill.Color = xFFE1F3CD
+    HitTest = False
+    Size.Width = 225.256530761718800000
+    Size.Height = 34.734455108642580000
+    Size.PlatformDefault = False
+    Stroke.Color = xFFCCCCCC
+    Visible = False
+  end
+  object WhiteTextLabelStyle: TLayout
+    StyleName = 'Label5Style1'
+    Align = Center
+    Size.Width = 210.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object TText
+      StyleName = 'text'
+      Align = Client
+      Locked = True
+      HitTest = False
+      Size.Width = 210.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Text'
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = xFFF6F4F4
+    end
+  end
+  object TLayout
+    StyleName = 'Labelstyle'
+    Align = Center
+    Size.Width = 210.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 6
+    object TText
+      StyleName = 'text'
+      Align = Client
+      Locked = True
+      HitTest = False
+      Size.Width = 210.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+end

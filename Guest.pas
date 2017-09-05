@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Menus, Vcl.StdCtrls,
   Vcl.ComCtrls, Vcl.DBCtrls, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
-  Data.Win.ADODB, Vcl.Mask, ShellApi, Vcl.Imaging.jpeg, comobj, OleServer;
+  Data.Win.ADODB, Vcl.Mask, ShellApi, Vcl.Imaging.jpeg, comobj, OleServer, Vcl.Themes;
 
 type
   TGuestForm = class(TForm)
@@ -52,6 +52,9 @@ type
     N3: TMenuItem;
     Label1: TLabel;
     ADOQueryExportWord: TADOQuery;
+    ComboBox1: TComboBox;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure CreateParams(var Params: TCreateParams); override;
     procedure FormShow(Sender: TObject);
     procedure SetGridView; // Настройка грида
@@ -72,6 +75,8 @@ type
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure CreateWord(const visible: Boolean);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure FillStyleCombobox;
   private
     { Private declarations }
   public
@@ -110,6 +115,14 @@ implementation
 
 uses Main, DM, About, Login, ShowModalImage;
 
+
+procedure TGuestForm.ComboBox1Change(Sender: TObject);
+begin
+  TStyleManager.TrySetStyle(ComboBox1.Items[ComboBox1.ItemIndex]);
+  MainForm.Visible := True;
+  GuestForm.Visible := True;
+  MainForm.Visible := False;
+end;
 
 procedure TGuestForm.CreateParams(var Params: TCreateParams);
 begin
@@ -204,6 +217,23 @@ begin
      end;
 end;
 
+procedure TGuestForm.FillStyleCombobox;
+var
+  s: string;
+begin
+  ComboBox1.Items.BeginUpdate;
+  try
+    ComboBox1.Items.Clear;
+    for s in TStyleManager.StyleNames do
+       ComboBox1.Items.Add(s);
+    ComboBox1.Sorted := True;
+    // Select the style that's currently in use in the combobox
+    ComboBox1.ItemIndex := ComboBox1.Items.IndexOf(TStyleManager.ActiveStyle.Name);
+  finally
+    ComboBox1.Items.EndUpdate;
+  end;
+end;
+
 procedure TGuestForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Application.Terminate;
@@ -244,6 +274,7 @@ procedure TGuestForm.FormShow(Sender: TObject);
 begin
   SetGridView;
   StatusBarUpdate;
+  FillStyleCombobox;
 end;
 
 procedure TGuestForm.Image1Click(Sender: TObject);

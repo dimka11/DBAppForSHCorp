@@ -17,7 +17,6 @@ type
     TabSheet6: TTabSheet;
     TabSheet7: TTabSheet;
     TabSheet8: TTabSheet;
-    TabSheet9: TTabSheet;
     GridPanel1: TGridPanel;
     ScrollBox1: TScrollBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

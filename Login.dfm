@@ -3,7 +3,7 @@ object LoginForm: TLoginForm
   Top = 329
   Caption = #1060#1086#1088#1084#1072' '#1074#1093#1086#1076#1072
   ClientHeight = 344
-  ClientWidth = 640
+  ClientWidth = 679
   Color = clBtnFace
   Constraints.MinHeight = 215
   Constraints.MinWidth = 636
@@ -23,7 +23,7 @@ object LoginForm: TLoginForm
   object PageControl1: TPageControl
     Left = 0
     Top = 177
-    Width = 640
+    Width = 679
     Height = 167
     ActivePage = TabSheet1
     Align = alClient
@@ -33,7 +33,7 @@ object LoginForm: TLoginForm
       object RichEdit1: TRichEdit
         Left = 0
         Top = 0
-        Width = 632
+        Width = 671
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -53,7 +53,7 @@ object LoginForm: TLoginForm
       object RichEdit2: TRichEdit
         Left = 0
         Top = 0
-        Width = 632
+        Width = 671
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -73,7 +73,7 @@ object LoginForm: TLoginForm
       object RichEdit3: TRichEdit
         Left = 0
         Top = 0
-        Width = 632
+        Width = 671
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -93,7 +93,7 @@ object LoginForm: TLoginForm
       object RichEdit4: TRichEdit
         Left = 0
         Top = 0
-        Width = 632
+        Width = 671
         Height = 139
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
@@ -113,7 +113,7 @@ object LoginForm: TLoginForm
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 640
+    Width = 679
     Height = 177
     Align = alTop
     TabOrder = 1
@@ -784,11 +784,11 @@ object LoginForm: TLoginForm
       Stretch = True
     end
     object Label1: TLabel
-      Left = 176
-      Top = 8
-      Width = 312
+      Left = 184
+      Top = 6
+      Width = 374
       Height = 19
-      Caption = #1044#1083#1103' '#1087#1088#1086#1076#1086#1083#1078#1077#1085#1080#1103' '#1088#1072#1073#1086#1090#1099' '#1074#1074#1077#1076#1080#1090#1077' '#1087#1072#1088#1086#1083#1100
+      Caption = #1044#1083#1103' '#1087#1088#1086#1076#1086#1083#1078#1077#1085#1080#1103' '#1088#1072#1073#1086#1090#1099' '#1074#1074#1077#1076#1080#1090#1077' '#1083#1086#1075#1080#1085' '#1080' '#1087#1072#1088#1086#1083#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -847,6 +847,8 @@ object LoginForm: TLoginForm
       Width = 145
       Height = 21
       Hint = #1042#1099#1073#1077#1088#1080#1090#1077' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 2
       Text = #1040#1076#1084#1080#1085#1080#1089#1090#1088#1072#1090#1086#1088
       TextHint = #1051#1086#1075#1080#1085
@@ -881,7 +883,7 @@ object LoginForm: TLoginForm
     SQL.Strings = (
       'SELECT *'
       'FROM Auth')
-    Left = 592
-    Top = 8
+    Left = 576
+    Top = 16
   end
 end

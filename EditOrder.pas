@@ -12,21 +12,19 @@ type
     DBNavigator1: TDBNavigator;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     GridPanel1: TGridPanel;
     Label1: TLabel;
     DBEdit1: TDBEdit;
-    Label2: TLabel;
     DBEdit2: TDBEdit;
-    Label3: TLabel;
-    DBEdit3: TDBEdit;
     Label4: TLabel;
     DBDateTimePicker1: TDBDateTimePicker;
-    Label5: TLabel;
-    DBEdit4: TDBEdit;
+    Label2: TLabel;
+    LeftPanel: TPanel;
+    RightPanel: TPanel;
     procedure ToolButton1Click(Sender: TObject);
     procedure ToolButton3Click(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -41,6 +39,12 @@ implementation
 {$R *.dfm}
 
 uses DM, OrderAdd;
+
+procedure TFormEditOrder.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+if (Key = #27) then
+  Close;
+end;
 
 procedure TFormEditOrder.ToolButton1Click(Sender: TObject);
 begin

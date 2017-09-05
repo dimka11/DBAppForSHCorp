@@ -24,6 +24,7 @@ type
     DBMemo6: TDBMemo;
     Label7: TLabel;
     DBMemo7: TDBMemo;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -38,5 +39,11 @@ implementation
 {$R *.dfm}
 
 uses DM;
+
+procedure TFormSchedule.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+if (Key = #27) then
+  Close;
+end;
 
 end.

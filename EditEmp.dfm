@@ -1,24 +1,28 @@
 object EditEmpForm: TEditEmpForm
   Left = 0
   Top = 0
-  Caption = 'EditEmpForm'
+  Caption = #1060#1086#1088#1084#1072' '#1088#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1103' '#1089#1086#1090#1088#1091#1076#1085#1080#1082#1072
   ClientHeight = 335
-  ClientWidth = 593
+  ClientWidth = 500
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object DBNavigator1: TDBNavigator
     Left = 0
     Top = 310
-    Width = 593
+    Width = 500
     Height = 25
-    DataSource = DMl.DataSourceEmp
+    DataSource = DMl.DataSourceGetEmpList
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
     Align = alBottom
     Hints.Strings = (
       #1055#1077#1088#1077#1081#1090#1080' '#1082' '#1087#1077#1088#1074#1086#1081' '#1079#1072#1087#1080#1089#1080
@@ -36,22 +40,20 @@ object EditEmpForm: TEditEmpForm
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
-    ExplicitLeft = 264
-    ExplicitTop = 72
-    ExplicitWidth = 240
+    ExplicitWidth = 422
   end
   object GridPanel1: TGridPanel
     Left = 0
-    Top = 29
-    Width = 593
-    Height = 281
-    Align = alClient
+    Top = 21
+    Width = 289
+    Height = 289
+    Align = alLeft
     ColumnCollection = <
       item
-        Value = 50.467289719626160000
+        Value = 30.772345511305000000
       end
       item
-        Value = 49.532710280373820000
+        Value = 69.227654488694990000
       end>
     ControlCollection = <
       item
@@ -91,7 +93,7 @@ object EditEmpForm: TEditEmpForm
       end
       item
         Column = 1
-        Control = DBEdit4
+        Control = DBLookupComboBox1
         Row = 3
       end>
     RowCollection = <
@@ -111,114 +113,131 @@ object EditEmpForm: TEditEmpForm
         SizeStyle = ssAuto
       end>
     TabOrder = 1
-    ExplicitLeft = 304
-    ExplicitTop = 128
-    ExplicitWidth = 185
-    ExplicitHeight = 41
-    DesignSize = (
-      593
-      281)
+    ExplicitTop = 29
+    ExplicitHeight = 281
     object Label1: TLabel
-      Left = 128
-      Top = 29
+      AlignWithMargins = True
+      Left = 11
+      Top = 6
       Width = 44
-      Height = 13
-      Anchors = []
+      Height = 63
+      Margins.Left = 10
+      Margins.Top = 5
+      Align = alLeft
       Caption = #1060#1072#1084#1080#1083#1080#1103
-      ExplicitLeft = 114
-      ExplicitTop = 31
+      ExplicitHeight = 13
     end
     object DBEdit1: TDBEdit
-      Left = 345
-      Top = 25
-      Width = 200
+      AlignWithMargins = True
+      Left = 104
+      Top = 11
+      Width = 181
       Height = 21
-      Anchors = []
+      Margins.Left = 15
+      Margins.Top = 10
+      Margins.Bottom = 20
       DataField = #1060#1072#1084#1080#1083#1080#1103
-      DataSource = DMl.DataSourceEmp
+      DataSource = DMl.DataSourceGetEmpList
       TabOrder = 0
-      ExplicitLeft = 295
-      ExplicitTop = 28
+      OnChange = DBEdit1Change
+      OnKeyPress = DBEdit1KeyPress
     end
     object Label2: TLabel
-      Left = 140
-      Top = 98
+      AlignWithMargins = True
+      Left = 11
+      Top = 77
       Width = 19
-      Height = 13
-      Anchors = []
+      Height = 63
+      Margins.Left = 10
+      Margins.Top = 5
+      Align = alLeft
       Caption = #1048#1084#1103
-      ExplicitLeft = 126
-      ExplicitTop = 105
+      ExplicitTop = 75
+      ExplicitHeight = 13
     end
     object DBEdit2: TDBEdit
-      Left = 345
-      Top = 94
-      Width = 200
+      AlignWithMargins = True
+      Left = 104
+      Top = 82
+      Width = 181
       Height = 21
-      Anchors = []
+      Margins.Left = 15
+      Margins.Top = 10
+      Margins.Bottom = 20
       DataField = #1048#1084#1103
-      DataSource = DMl.DataSourceEmp
+      DataSource = DMl.DataSourceGetEmpList
       TabOrder = 1
-      ExplicitLeft = 335
-      ExplicitTop = 101
+      OnKeyPress = DBEdit2KeyPress
     end
     object Label3: TLabel
-      Left = 128
-      Top = 167
+      AlignWithMargins = True
+      Left = 11
+      Top = 148
       Width = 44
-      Height = 13
-      Anchors = []
+      Height = 63
+      Margins.Left = 10
+      Margins.Top = 5
+      Align = alLeft
       Caption = #1058#1077#1083#1077#1092#1086#1085
-      ExplicitLeft = 114
-      ExplicitTop = 179
+      ExplicitTop = 144
+      ExplicitHeight = 13
     end
     object DBEdit3: TDBEdit
-      Left = 345
-      Top = 163
-      Width = 200
+      AlignWithMargins = True
+      Left = 104
+      Top = 153
+      Width = 181
       Height = 21
-      Anchors = []
+      Margins.Left = 15
+      Margins.Top = 10
+      Margins.Bottom = 20
       DataField = #1058#1077#1083#1077#1092#1086#1085
-      DataSource = DMl.DataSourceEmp
+      DataSource = DMl.DataSourceGetEmpList
       TabOrder = 2
-      ExplicitLeft = 335
-      ExplicitTop = 175
+      OnKeyPress = DBEdit3KeyPress
     end
     object Label4: TLabel
-      Left = 121
-      Top = 236
+      AlignWithMargins = True
+      Left = 11
+      Top = 219
       Width = 57
-      Height = 13
-      Anchors = []
+      Height = 63
+      Margins.Left = 10
+      Margins.Top = 5
+      Align = alLeft
       Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
-      ExplicitLeft = 107
-      ExplicitTop = 255
+      ExplicitTop = 213
+      ExplicitHeight = 13
     end
-    object DBEdit4: TDBEdit
-      Left = 345
-      Top = 232
-      Width = 200
+    object DBLookupComboBox1: TDBLookupComboBox
+      AlignWithMargins = True
+      Left = 99
+      Top = 224
+      Width = 186
       Height = 21
-      Anchors = []
-      DataField = #1044#1086#1083#1078#1085#1086#1089#1090#1100
-      DataSource = DMl.DataSourceEmp
+      Margins.Left = 10
+      Margins.Top = 10
+      DataField = 'PositionID'
+      DataSource = DMl.DataSourceGetEmpList
+      KeyField = 'ID'
+      ListField = 'Title'
+      ListSource = DataSource1
       TabOrder = 3
-      ExplicitLeft = 295
-      ExplicitTop = 226
     end
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 593
-    Height = 29
+    Width = 500
+    Height = 21
     Anchors = []
+    AutoSize = True
     ButtonHeight = 21
     ButtonWidth = 120
     Caption = 'ToolBar1'
     ShowCaptions = True
     TabOrder = 2
-    ExplicitWidth = 527
+    ExplicitWidth = 590
     object ToolButton1: TToolButton
       Left = 0
       Top = 0
@@ -226,12 +245,12 @@ object EditEmpForm: TEditEmpForm
       ImageIndex = 0
       OnClick = ToolButton1Click
     end
-    object ToolButton3: TToolButton
+    object ToolButton5: TToolButton
       Left = 120
       Top = 0
       Width = 8
-      Caption = 'ToolButton3'
-      ImageIndex = 2
+      Caption = 'ToolButton5'
+      ImageIndex = 3
       Style = tbsSeparator
     end
     object ToolButton2: TToolButton
@@ -241,5 +260,34 @@ object EditEmpForm: TEditEmpForm
       ImageIndex = 1
       OnClick = ToolButton2Click
     end
+    object ToolButton3: TToolButton
+      Left = 248
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton3'
+      ImageIndex = 3
+      Style = tbsSeparator
+    end
+    object ToolButton4: TToolButton
+      Left = 256
+      Top = 0
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      ImageIndex = 2
+      OnClick = ToolButton4Click
+    end
+  end
+  object ADODataSet1: TADODataSet
+    Active = True
+    Connection = DMl.ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'SELECT ID, Title'#13#10'FROM [Position]'
+    Parameters = <>
+    Left = 344
+    Top = 200
+  end
+  object DataSource1: TDataSource
+    DataSet = ADODataSet1
+    Left = 352
+    Top = 152
   end
 end

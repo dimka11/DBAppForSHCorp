@@ -37,6 +37,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure CreateParams(var Params: TCreateParams); override;
     procedure Button1Click(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -91,6 +92,12 @@ begin
   inherited;
   if CheckWin32Version(5, 1) then
     Params.ExStyle := Params.ExStyle or WS_EX_COMPOSITED;
+end;
+
+procedure TFormSkinType.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+if (Key = #27) then
+  Close;
 end;
 
 end.
